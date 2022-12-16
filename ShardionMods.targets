@@ -1,0 +1,14 @@
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ModLoaderTargets Condition=" '$(OS)' == 'Windows_NT' ">
+      $(USERPROFILE)\Documents\My Games\Terraria\tModLoader\ModSources\tModLoader.targets
+    </ModLoaderTargets>
+    <ModLoaderTargets Condition=" '$(OS)' != 'Windows_NT' ">
+      $(HOME)/.local/share/Terraria/tModLoader/ModSources/tModLoader.targets
+    </ModLoaderTargets>
+    <ModLoaderTargets Condition=" '$(SHDN_TMODLOADER_DATA)' != '' ">
+      $(SHDN_TMODLOADER_DATA)/ModSources/tModLoader.targets
+    </ModLoaderTargets>
+  </PropertyGroup>
+  <Import Project="$(ModLoaderTargets)" />
+</Project>
