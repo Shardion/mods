@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
 
-namespace VsOddity.Projectiles
+namespace Shardion.Ether.Projectiles
 {
     public abstract class OddityProjectile : ModProjectile
     {
