@@ -1,6 +1,6 @@
-using VsOddity.NPCs.Oddity.Stages.FirstPhase;
+using Shardion.Ether.NPCs.Oddity.Stages.FirstPhase;
 
-namespace VsOddity.NPCs.Oddity.Phases
+namespace Shardion.Ether.NPCs.Oddity.Phases
 {
     public class FirstPhase : OddityPhase
     {

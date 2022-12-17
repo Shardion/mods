@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using VsOddity.Projectiles.Visual;
+using Shardion.Ether.Projectiles.Visual;
 
-namespace VsOddity.NPCs.Oddity.Stages.FirstPhase
+namespace Shardion.Ether.NPCs.Oddity.Stages.FirstPhase
 {
     public class LightInDescendingDarknessStage : OddityStage
     {

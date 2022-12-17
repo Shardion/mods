@@ -1,9 +1,9 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace VsOddity.NPCs
+namespace Shardion.Ether.NPCs
 {
-    public class VsOddityGlobalNPC : GlobalNPC
+    public class EtherGlobalNPC : GlobalNPC
     {
         public static int Oddity { get; set; } = -1;
 

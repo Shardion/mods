@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace VsOddity.Projectiles.Seal
+namespace Shardion.Ether.Projectiles.Seal
 {
     public class OdditySeal : OddityProjectile
     {

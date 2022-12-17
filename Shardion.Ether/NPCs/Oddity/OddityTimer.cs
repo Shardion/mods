@@ -1,6 +1,6 @@
 using System;
 
-namespace VsOddity.NPCs.Oddity
+namespace Shardion.Ether.NPCs.Oddity
 {
     public class OddityTimer
     {

@@ -1,6 +1,6 @@
 using Terraria;
 
-namespace VsOddity.Projectiles.Visual
+namespace Shardion.Ether.Projectiles.Visual
 {
     public class UltimateTruth : OddityProjectile
     {

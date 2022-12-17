@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VsOddity.Items.Weapons
+namespace Shardion.Ether.Items.Weapons
 {
     public class UltimateTruth : ModItem
     {

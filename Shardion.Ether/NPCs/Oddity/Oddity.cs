@@ -5,9 +5,9 @@ using Terraria.GameContent.Bestiary;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VsOddity.NPCs.Oddity.Phases;
+using Shardion.Ether.NPCs.Oddity.Phases;
 
-namespace VsOddity.NPCs.Oddity
+namespace Shardion.Ether.NPCs.Oddity
 {
     public class Oddity : ModNPC
     {

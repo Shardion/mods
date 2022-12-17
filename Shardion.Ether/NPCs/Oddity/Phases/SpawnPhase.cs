@@ -1,6 +1,6 @@
 using Terraria;
 
-namespace VsOddity.NPCs.Oddity.Phases
+namespace Shardion.Ether.NPCs.Oddity.Phases
 {
     public class SpawnPhase : OddityPhase
     {

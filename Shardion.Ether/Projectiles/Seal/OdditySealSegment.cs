@@ -1,6 +1,6 @@
 using Terraria;
 
-namespace VsOddity.Projectiles.Seal
+namespace Shardion.Ether.Projectiles.Seal
 {
     public class OdditySealSegment : OddityProjectile
     {

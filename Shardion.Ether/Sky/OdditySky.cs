@@ -4,12 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria;
-using VsOddity.NPCs.Oddity;
-using VsOddity.NPCs;
+using Shardion.Ether.NPCs.Oddity;
 
 // Based on https://github.com/Fargowilta/FargowiltasSouls/blob/893bf2d6600464a5e768509ad11f250e5bf55ed6/Sky/MutantSky2.cs
 
-namespace VsOddity.Sky
+namespace Shardion.Ether.Sky
 {
     public class OdditySky : CustomSky
     {
@@ -28,10 +27,10 @@ namespace VsOddity.Sky
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            if (maxDepth >= 0 && minDepth < 0)
+            if (maxDepth >= 0 && minDepth < 0 && Ether.Instance != null)
             {
                 spriteBatch.Draw(
-                    VsOddity.Instance.Assets.Request<Texture2D>("Sky/OdditySky", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
+                    Ether.Instance.Assets.Request<Texture2D>("Sky/OdditySky", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
                     new Rectangle(0, 0, Main.screenWidth, Main.screenHeight),
                     Color.Black
                 );
@@ -39,7 +38,7 @@ namespace VsOddity.Sky
                 {
                     // TODO: use the full overload so scale does something
                     spriteBatch.Draw(
-                        VsOddity.Instance.Assets.Request<Texture2D>("Sky/OdditySkyParticle", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
+                        Ether.Instance.Assets.Request<Texture2D>("Sky/OdditySkyParticle", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
                         particle.Position,
                         Color.White
                     );

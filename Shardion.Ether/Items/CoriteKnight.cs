@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VsOddity.NPCs.Oddity;
 
-namespace VsOddity.Items
+namespace Shardion.Ether.Items
 {
     public class CoriteKnight : ModItem
     {
@@ -27,7 +26,7 @@ namespace VsOddity.Items
 
         public override void AddRecipes()
         {
-            CreateRecipe()
+            _ = CreateRecipe()
                 .AddIngredient(ItemID.DirtBlock, 10)
                 .AddTile(TileID.WorkBenches)
                 .Register();

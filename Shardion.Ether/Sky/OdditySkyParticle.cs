@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 
-
-namespace VsOddity.Sky
+namespace Shardion.Ether.Sky
 {
     public struct OdditySkyParticle
     {

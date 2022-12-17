@@ -1,9 +1,8 @@
 using Terraria;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System;
 
-namespace VsOddity.Projectiles.Visual
+namespace Shardion.Ether.Projectiles.Visual
 {
     public class TargetReticle : OddityProjectile
     {

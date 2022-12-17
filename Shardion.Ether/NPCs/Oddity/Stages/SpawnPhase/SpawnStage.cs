@@ -1,6 +1,4 @@
-using Terraria.ModLoader;
-
-namespace VsOddity.NPCs.Oddity.Stages.SpawnPhase
+namespace Shardion.Ether.NPCs.Oddity.Stages.SpawnPhase
 {
     public class SpawnStage : OddityStage
     {
