@@ -19,7 +19,9 @@ See `Shardion.Ether/ODDITY.md` for that.
 
 # Project Flashback
 
+- Separate Flashback and Many Modifications. Many Modifications was originally what Flashback intends to be (a vanity mod), but it ballooned in scope.
 - This mod needs a name. Its original name was `Shardion's Various Vanities`, but I don't feel that applies, now that it's not just about the quantity.
 - Look into IL edits instead of custom draw layers for layered clothing drawing.
 - Make a metric ton of vanity items intended to be used with layered clothing.
-
+- Layered clothing support for head and legs.
+- Add a way to make layered clothing in-game (probably a special furniture item, a la Calamity's Codebreaker).
