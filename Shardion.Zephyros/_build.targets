@@ -1,0 +1,15 @@
+﻿<Project>
+    <PropertyGroup>
+        <DisplayName>Shardion's Many Modifications</DisplayName>
+        <Author>Shardion, Split</Author>
+        <Version>1.3.0</Version>
+        <Homepage>https://discord.gg/PRYhCSeCNu</Homepage>
+        <ModSide>Both</ModSide>
+
+        <HideCode>false</HideCode>
+        <HideResources>false</HideResources>
+        <IncludeSource>true</IncludeSource>
+
+        <BuildIgnore>.collate/,Properties/,.accesstransformer</BuildIgnore> <!-- Default Collate setting. TODO: Not sure if .collate is important. -->
+    </PropertyGroup>
+</Project>
