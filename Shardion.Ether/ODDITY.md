@@ -4,6 +4,8 @@
 Oddity is slated to use World Fragments, World Fragments 2 and World Fragments 3 by xi.
 These songs will be played in order during the fight and loop back to the first one after the last one ends, as if they were one song.
 
+These songs were picked due to their combined length (~10 minutes) and general feel that works well with the Oddity fight.
+
 ## Oddity Sky
 During the Oddity fight, the background becomes entirely black, with many small white particles flying from the left side of the screen to the right.
 *TODO: This is too boring, but I'm not sure how I could make it nicer while keeping it clean for the fight.*

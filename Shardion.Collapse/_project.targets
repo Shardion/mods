@@ -1,0 +1,9 @@
+﻿<Project>
+    <PropertyGroup>
+        <AssemblyName>ShardionsBadHairDye</AssemblyName>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Shardion.Collapse</RootNamespace>
+    </PropertyGroup>
+</Project>

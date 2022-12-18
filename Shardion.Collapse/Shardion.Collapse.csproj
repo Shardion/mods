@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="_project.targets" />
+    <Import Project="_build.targets" />
+    <Import Project="_config.targets" />
+
+    <ItemGroup>
+        <PackageReference Include="Rejuvena.Collate" Version="1.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ManagedDoom\ManagedDoom\ManagedDoom.csproj" />
+    </ItemGroup>
+</Project>
