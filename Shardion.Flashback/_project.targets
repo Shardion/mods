@@ -1,0 +1,9 @@
+﻿<Project>
+    <PropertyGroup>
+        <AssemblyName>ProjectFlashback</AssemblyName>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Shardion.Flashback</RootNamespace>
+    </PropertyGroup>
+</Project>
