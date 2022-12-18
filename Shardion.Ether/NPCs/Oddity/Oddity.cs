@@ -55,7 +55,7 @@ namespace Shardion.Ether.NPCs.Oddity
 
         public override void AI()
         {
-            VsOddityGlobalNPC.Oddity = NPC.whoAmI;
+            EtherGlobalNPC.Oddity = NPC.whoAmI;
 
             if (!SkyManager.Instance["VsOddity:Oddity"].IsActive())
             {

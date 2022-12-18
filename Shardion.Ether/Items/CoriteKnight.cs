@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Shardion.Ether.NPCs.Oddity;
 
 namespace Shardion.Ether.Items
 {

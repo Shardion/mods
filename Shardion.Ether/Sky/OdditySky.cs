@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria;
 using Shardion.Ether.NPCs.Oddity;
+using Shardion.Ether.NPCs;
 
 // Based on https://github.com/Fargowilta/FargowiltasSouls/blob/893bf2d6600464a5e768509ad11f250e5bf55ed6/Sky/MutantSky2.cs
 
@@ -50,7 +51,7 @@ namespace Shardion.Ether.Sky
         {
             particleTimer.Ticks++;
 
-            if (VsOddityGlobalNPC.IsOddityAlive())
+            if (EtherGlobalNPC.IsOddityAlive())
             {
                 intensity += increment;
                 if (intensity > 1f)
