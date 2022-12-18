@@ -1,5 +1,8 @@
 using System;
+using System.IO;
 using Terraria;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ManagedDoom.Video;
 using ManagedDoom;
@@ -10,44 +13,31 @@ namespace Shardion.Collapse.Doom
     {
         private Renderer renderer;
 
-//        private RenderWindow window;
-
-        private int windowWidth;
-        private int windowHeight;
-
-        private int textureWidth;
-        private int textureHeight;
-
         private byte[] textureData;
-        public Texture2D? Texture { get; set; }
-//        private global::SFML.Graphics.Texture texture;
-//        private global::SFML.Graphics.Sprite sprite;
-//        private global::SFML.Graphics.RenderStates renderStates;
+        public Texture2D Texture { get { _texture.SetData(0, null, textureData, 0, 1024000); return _texture; } }
+        private Texture2D _texture;
 
         public DoomTexture2DVideo(Config config, GameContent content)
         {
             try
             {
-                Console.Write("Initialize video: ");
+                Shardion.Collapse.Instance.Logger.Debug("Initialize video: ");
 
                 renderer = new Renderer(config, content);
 
                 config.video_gamescreensize = Math.Clamp(config.video_gamescreensize, 0, MaxWindowSize);
                 config.video_gammacorrection = Math.Clamp(config.video_gammacorrection, 0, MaxGammaCorrectionLevel);
 
-                windowWidth = 128;
-                windowHeight = 128;
-                textureWidth = 128;
-                textureHeight = 128;
-
                 textureData = new byte[4 * renderer.Width * renderer.Height];
-                Texture = new Texture2D(Main.graphics.GraphicsDevice, textureWidth, textureHeight);
+                _texture = new Texture2D(Main.graphics.GraphicsDevice, renderer.Height, renderer.Width); // doom renders vertically????
+                DrawRect = new(0, 0, textureHeight, textureWidth);
 
-                Console.WriteLine("OK");
+                Shardion.Collapse.Instance.Logger.Debug("OK");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed");
+                Shardion.Collapse.Instance.Logger.Debug("Failed");
+                Shardion.Collapse.Instance.Logger.Debug(e.Message);
                 Dispose();
             }
         }
@@ -55,7 +45,6 @@ namespace Shardion.Collapse.Doom
         public void Render(ManagedDoom.Doom doom)
         {
             renderer.Render(doom, textureData);
-            Texture?.SetData(textureData);
         }
 
         public void InitializeWipe()
@@ -70,12 +59,12 @@ namespace Shardion.Collapse.Doom
 
         public void Dispose()
         {
-            Console.WriteLine("Shutdown renderer.");
+            Shardion.Collapse.Instance.Logger.Debug("Shutdown renderer.");
 
-            if (Texture != null)
+            if (_texture != null)
             {
-                Texture.Dispose();
-                Texture = null;
+                _texture.Dispose();
+                _texture = null;
             }
         }
 

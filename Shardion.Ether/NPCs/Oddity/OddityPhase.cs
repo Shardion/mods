@@ -4,7 +4,7 @@ namespace Shardion.Ether.NPCs.Oddity
     {
         public virtual string Name => "Oddity Phase";
 
-        public OddityStage CurrentStage { get; protected set; }
+        public OddityStage CurrentStage { get; protected set; } = new();
         public bool IsStarting { get; protected set; }
         public bool IsStarted { get; protected set; }
         protected bool IsMainPhaseEnded { get; set; }

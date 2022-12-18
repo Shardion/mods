@@ -12,7 +12,7 @@ namespace Shardion.Ether.NPCs.Oddity.Stages.FirstPhase
         private int _timesAttacked;
         private bool _doneStarting;
         private bool _readyToEnd;
-        private Projectile _ultimateTruth;
+        private Projectile? _ultimateTruth;
         private Vector2 _ultimateTruthPosition;
 
         public override bool IsStageStarted(Oddity oddity)

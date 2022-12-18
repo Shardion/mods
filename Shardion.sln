@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Ether", "Shardion.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Zephyros", "Shardion.Zephyros\Shardion.Zephyros.csproj", "{171B4690-78DA-44DE-A42E-9553B1A97C14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Collapse", "Shardion.Collapse\Shardion.Collapse.csproj", "{FA9D04FB-DA91-4287-8A93-8E1C6F6CDE63}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Flashback", "Shardion.Flashback\Shardion.Flashback.csproj", "{C40B9134-9000-4953-A8E9-A8462E4CB795}"
 EndProject
 Global

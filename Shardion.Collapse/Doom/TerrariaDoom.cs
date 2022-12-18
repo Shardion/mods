@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ManagedDoom.Audio;
 using ManagedDoom.UserInput;
@@ -19,29 +20,33 @@ namespace Shardion.Collapse.Doom
         public TerrariaDoom()
         {
             config = new Config();
-            config.video_screenwidth = 128;
-            config.video_screenheight = 128;
+            config.video_screenwidth = 320;
+            config.video_screenheight = 200;
 
-            content = new GameContent(new CommandLineArgs(Array.Empty<string>()));
+            content = new GameContent(new CommandLineArgs(new string[] { "-iwad", "/tmp/DOOM.WAD" }));
             video = new(config, content);
             sound = new();
             music = new();
             userInput = new();
 
-            doom = new ManagedDoom.Doom(new CommandLineArgs(Array.Empty<string>()), config, content, video, sound, music, userInput);
+            doom = new ManagedDoom.Doom(new CommandLineArgs(new string[] { "-iwad", "/tmp/DOOM.WAD" } ), config, content, video, sound, music, userInput);
         }
 
-        public Texture2D? GetDoomTexture()
+        public Texture2D GetDoomTexture()
         {
             return video.Texture;
         }
 
-        public void Tick()
+        public void Update()
         {
             doom.Update();
+        }
+
+        public void Draw()
+        {
             video.Render(doom);
         }
-        
+
         public void Dispose()
         {
             if (video != null)
