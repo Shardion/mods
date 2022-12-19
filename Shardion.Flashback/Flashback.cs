@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 
 namespace Shardion.Flashback
 {
-    public class Flashback : Mod
+    public partial class Flashback : Mod
     {
-        public static Asset<Texture2D> blackThread;
-        public static Asset<Texture2D> greenThread;
-        public static Asset<Texture2D> pinkThread;
+        public static Asset<Texture2D>? blackThread;
+        public static Asset<Texture2D>? greenThread;
+        public static Asset<Texture2D>? pinkThread;
 
         public override void Load()
         {
@@ -26,6 +26,8 @@ namespace Shardion.Flashback
                 TextureAssets.Item[ItemID.BlackThread] = blackThread;
                 TextureAssets.Item[ItemID.GreenThread] = greenThread;
                 TextureAssets.Item[ItemID.PinkThread] = pinkThread;
+
+                AutoloadFemaleLegsTextures();
             }
         }
 
@@ -40,6 +42,8 @@ namespace Shardion.Flashback
                 TextureAssets.Item[ItemID.BlackThread] = null;
                 TextureAssets.Item[ItemID.GreenThread] = null;
                 TextureAssets.Item[ItemID.PinkThread] = null;
+
+                UnloadFemaleLegsTextures();
             }
 
             base.Unload();

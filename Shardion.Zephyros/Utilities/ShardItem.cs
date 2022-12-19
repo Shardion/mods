@@ -14,7 +14,7 @@ namespace Shardion.Zephyros.Utilities
         // We have a separate assets folder to keep the code clean and separated from the assets
         // As a side effect, this also enforces that items are always content
         // Additionally this allows us to automatically add placeholder sprites and tooltips
-        public override string Texture => UsePlaceholderSprite ? "ShardionsManyModifications/Assets/ShardPlaceholder" : GetType().ToString().Replace(".", "/").Replace("Content", "Assets");
+        public override string Texture => UsePlaceholderSprite ? "ShardionsManyModifications/Assets/ShardPlaceholder" : GetType().ToString().Replace(".", "/").Replace("Content", "Assets").Replace("Shardion/Zephyros", "Shardion.Zephyros");
 
         public virtual bool UsePlaceholderSprite => false;
 
