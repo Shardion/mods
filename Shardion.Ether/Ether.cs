@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 using Terraria.Graphics.Effects;
-using Shardion.Ether.Sky;
+using Shardion.Ether.Content.Sky;
 
 namespace Shardion.Ether
 {

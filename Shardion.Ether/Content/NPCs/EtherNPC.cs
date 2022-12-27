@@ -1,8 +1,8 @@
 using Terraria.ModLoader;
 
-namespace Shardion.Flashback.Internal
+namespace Shardion.Ether.Content.NPCs
 {
-    public abstract class FlashbackItem : ModItem
+    public abstract class EtherNPC : ModNPC
     {
         public override string Texture => FullNameToTexturePath(GetType().FullName);
 
@@ -15,9 +15,10 @@ namespace Shardion.Flashback.Internal
         {
             if (maybeName is string name)
             {
-                return name.Replace(".", "/").Replace("Content", "Assets").Replace("Shardion/Flashback", "ProjectFlashback") + append;
+                return name.Replace(".", "/").Replace("Content", "Assets").Replace("Shardion/Ether", "ShardionsOddEncounter") + append;
             }
             return base.Texture;
         }
+
     }
 }
