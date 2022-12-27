@@ -1,14 +1,21 @@
 # Shardion's mods monorepo
-
 This repository contains the source code for every single Terraria mod I've made.
 
 ## Building
-
 All mods in this repository require Rejuvena.Collate to build, and as such cannot be built in-game (for now).
 To build these mods, you must first download Collate (`dotnet restore` if using the .NET CLI), and then you can build the mods with your IDE of choice (`dotnet build` for CLI).
 
-## Contributing
+## Overview
+The many project names may feel confusing, but trust me, it's more annoying to refer to them by their full names.
+A quick overview is as follows:
 
+- `Shardion.Ether`: A mod containing a single, Mutant-style bossfight, intended to be the highest quality fight I can make.
+- `Shardion.Zephyros`: A mod for all of my random fixes and tweaks. Needs a rewrite.
+- `Shardion.Collapse`: A mod containing a port of DOOM... to Terraria? <!-- Yes, I saved the funny codename for the funny mod. -->
+- `Shardion.Flashback`: A mod which adds a vanity item layering system (which hasn't been ported over from Zephyros yet) and some vanity items for use with it.
+- `Shardion.Station`: A mod which reimagines Terraria as a new experience. Currently in design phase; no code exists yet.
+
+## Contributing
 Contributions are welcome! Just remember these two guidelines:
 
 - Please format your code!
