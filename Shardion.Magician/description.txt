@@ -1,0 +1,22 @@
+A client-side lag prevention mod, because for some reason, there's no good client-side ones.
+
+If a boss is alive, fullbright is enabled, and all dust, gore, rain and combat text gets deleted.
+
+Each of these behaviors can be disabled in the config.
+Additionally, dust, gore, rain and combat text deletion can also be enabled all the time, even if a boss is not alive.
+
+Because it's client-side, you can use this mod on servers which don't have it.
+
+Changelog:
+
+v1.2.0
+- Added rain deletion, since rain can be laggy
+
+v1.1.1
+- Fixed a typo in the description
+- Added a mod icon
+
+v1.1
+- Added a dummy fullbright lighting engine, to bypass the vanilla ones entirely for more FPS
+- Added gore deletion
+- Fixed a bug in boss detection that would make the mod think a boss was alive when there wasn't

@@ -3,14 +3,16 @@
 
 A big list of everything that needs done or should be looked into across all of my mods.
 
+# Clientside Lag Prevention
+
+- Replace the reflection with a faster method of replacing the lighting engine, or make the reflection method run less often.
+- Add support for disabling shaders and background clouds.
+
 # Shardion's Many Modifications
 
-- This mod needs a huge internal restructuring, if not an entire rewrite.
-  Its code is very messy and hard to understand, there are many warnings, and sins comparable to those of the Terraria codebase itself.
-- The amount of dead and unused content in this mod is astounding.
-  This needs cleaned up very badly.
-- Bosses should start dropping some annoying materials. Notably, Skeletron should drop Bones,
-  Eater of Worlds should drop Rotten Chunks, Brain of Cthulhu should drop Vertebra, and Plantera should drop Chlorophyte Ore.
+- This mod needs a complete rewrite and redesign. Most features should be dropped.
+  Everything left should be genuine improvements, instead of "quality of life" cheat codes to skip the less challening parts of the game.
+- Add a few overpowered developer items. :trollface:
 
 # Shardion's Odd Encounter
 
@@ -20,8 +22,11 @@ See `Shardion.Ether/ODDITY.md` for that.
 # Project Flashback
 
 - Separate Flashback and Many Modifications. Many Modifications was originally what Flashback intends to be (a vanity mod), but it ballooned in scope.
-- This mod needs a name. Its original name was `Shardion's Various Vanities`, but I don't feel that applies, now that it's not just about the quantity.
+- Decide on a name. `Vanity Layering` is fine, but needs more consideration.
 - Look into IL edits instead of custom draw layers for layered clothing drawing.
-- Make a metric ton of vanity items intended to be used with layered clothing.
 - Layered clothing support for head and legs.
 - Add a way to make layered clothing in-game (probably a special furniture item, a la Calamity's Codebreaker).
+
+# DOOM In Terraria
+
+- Add support for playing audio, and allow capturing the keyboard, so you can actually play the game.

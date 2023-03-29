@@ -17,23 +17,24 @@ namespace Shardion.Flashback
         {
             base.Load();
 
-            if (!Main.dedServ)
+/*            if (!Main.dedServ)
             {
-                blackThread = Assets.Request<Texture2D>("Assets/VV/Items/Crafting/Thread/BlackThread");
-                greenThread = Assets.Request<Texture2D>("Assets/VV/Items/Crafting/Thread/GreenThread");
-                pinkThread = Assets.Request<Texture2D>("Assets/VV/Items/Crafting/Thread/PinkThread");
+                Logger.Error((new Shardion.Flashback.Content.Vanity.LayeredClothing.Legs.ThighSocks()).Texture);
+                blackThread = Assets.Request<Texture2D>("ProjectFlashback/Assets/Crafting/Threads/BlackThread");
+                greenThread = Assets.Request<Texture2D>("ProjectFlashback/Assets/Crafting/Threads/GreenThread");
+                pinkThread = Assets.Request<Texture2D>("ProjectFlashback/Assets/Crafting/Threads/PinkThread");
 
                 TextureAssets.Item[ItemID.BlackThread] = blackThread;
                 TextureAssets.Item[ItemID.GreenThread] = greenThread;
                 TextureAssets.Item[ItemID.PinkThread] = pinkThread;
 
                 AutoloadFemaleLegsTextures();
-            }
+            }*/
         }
 
         public override void Unload()
         {
-            blackThread = null;
+/*            blackThread = null;
             pinkThread = null;
             greenThread = null;
 
@@ -45,7 +46,7 @@ namespace Shardion.Flashback
 
                 UnloadFemaleLegsTextures();
             }
-
+*/
             base.Unload();
         }
     }

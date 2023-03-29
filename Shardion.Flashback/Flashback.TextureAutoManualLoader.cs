@@ -12,7 +12,7 @@ namespace Shardion.Flashback
     
         private void AutoloadFemaleLegsTextures()
         {
-            foreach (VanityItem item in ConstructObjects<VanityItem>(FindSubclasses<VanityItem>()))
+/*            foreach (VanityItem item in ConstructObjects<VanityItem>(FindSubclasses<VanityItem>()))
             {
                 if (item.FemaleLegTexture != null)
                 {
@@ -23,7 +23,7 @@ namespace Shardion.Flashback
                         equipTextures[item.Type] = EquipLoader.AddEquipTexture(this, textureName, EquipType.Legs, null, textureName);
                     }
                 }
-            }
+            }*/
         }
 
         private void UnloadFemaleLegsTextures()

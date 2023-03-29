@@ -7,7 +7,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity.Stages.FirstPhase
 {
     public class LightInDescendingDarknessStage : OddityStage
     {
-        public override string Name => "Light In Descending Darkness";
+        public override string Name => "Blinding Light Above"; // TODO: need something more interesting than "Light Slash" but less pretentious than "Light In Descending Darkness"
         private readonly OddityTimer _attackTimer = new();
         private int _timesAttacked;
         private bool _doneStarting;

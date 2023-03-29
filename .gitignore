@@ -1,5 +1,7 @@
 *~
 *.dll
+*.ogg
+*.mp3
 */obj/
 */bin/
 */lib/

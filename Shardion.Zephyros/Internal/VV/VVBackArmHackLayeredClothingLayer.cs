@@ -9,8 +9,9 @@ using static Terraria.DataStructures.PlayerDrawLayers;
 
 namespace Shardion.Zephyros.Internal.VV
 {
-    // HATE ARMS? just... render over them! the vanilla arms won't render anyways if the armor hides them!
-    // no need to worry about overlap!
+    /// <remarks>
+    /// Called the "Back Arm Hack" due to how it renders over the vanilla back arm.
+    /// </remakrs>
     public class VVBackArmHackLayeredClothingLayer : VVLayeredClothingLayer
     {
         public override ArmorSlots ArmorSlot => ArmorSlots.Torso;

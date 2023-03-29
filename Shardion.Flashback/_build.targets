@@ -1,4 +1,4 @@
-﻿<Project>
+<Project>
     <PropertyGroup>
         <DisplayName>Project Flashback</DisplayName>
         <Author>Shardion</Author>
@@ -9,7 +9,5 @@
         <HideCode>false</HideCode>
         <HideResources>false</HideResources>
         <IncludeSource>true</IncludeSource>
-
-        <BuildIgnore>.collate/,Properties/,.accesstransformer</BuildIgnore> <!-- Default Collate setting. TODO: Not sure if .collate is important. -->
     </PropertyGroup>
 </Project>

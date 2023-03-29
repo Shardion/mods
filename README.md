@@ -11,9 +11,9 @@ A quick overview is as follows:
 
 - `Shardion.Ether`: A mod containing a single, Mutant-style bossfight, intended to be the highest quality fight I can make.
 - `Shardion.Zephyros`: A mod for all of my random fixes and tweaks. Needs a rewrite.
-- `Shardion.Collapse`: A mod containing a port of DOOM... to Terraria? <!-- Yes, I saved the funny codename for the funny mod. -->
-- `Shardion.Flashback`: A mod which adds a vanity item layering system (which hasn't been ported over from Zephyros yet) and some vanity items for use with it.
-- `Shardion.Station`: A mod which reimagines Terraria as a new experience. Currently in design phase; no code exists yet.
+- `Shardion.Limbo`: A mod containing a port of DOOM... to Terraria? <!-- The funny codename was reassigned to a file compressor. This is the best ending. -->
+- `Shardion.Flashback`: A mod which adds a vanity item layering system. (Which hasn't been ported over from Zephyros yet...)
+- `Shardion.Magician`: A mod which attempts to remove or optimize as many sources of client-side lag as possible.
 
 ## Contributing
 Contributions are welcome! Just remember these two guidelines:

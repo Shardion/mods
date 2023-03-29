@@ -8,7 +8,7 @@ namespace Shardion.Ether.Content.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'The blade of blinding light from a defeated foe...'");
+            Tooltip.SetDefault("'A defeated foe's blade of blinding lights, now passed down to you'");
         }
 
         public override void SetDefaults()
