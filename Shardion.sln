@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Zephyros", "Shardi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Flashback", "Shardion.Flashback\Shardion.Flashback.csproj", "{C40B9134-9000-4953-A8E9-A8462E4CB795}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Limbo", "Shardion.Limbo\Shardion.Limbo.csproj", "{71EBF0A8-98C0-431E-BBBF-BE879C0D750C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shardion.Magician", "Shardion.Magician\Shardion.Magician.csproj", "{1664BF89-3627-45BD-B6AF-FAA09E3E7DCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{C40B9134-9000-4953-A8E9-A8462E4CB795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C40B9134-9000-4953-A8E9-A8462E4CB795}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C40B9134-9000-4953-A8E9-A8462E4CB795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71EBF0A8-98C0-431E-BBBF-BE879C0D750C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71EBF0A8-98C0-431E-BBBF-BE879C0D750C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71EBF0A8-98C0-431E-BBBF-BE879C0D750C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71EBF0A8-98C0-431E-BBBF-BE879C0D750C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1664BF89-3627-45BD-B6AF-FAA09E3E7DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1664BF89-3627-45BD-B6AF-FAA09E3E7DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1664BF89-3627-45BD-B6AF-FAA09E3E7DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1664BF89-3627-45BD-B6AF-FAA09E3E7DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
