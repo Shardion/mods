@@ -1,6 +1,0 @@
-﻿<Project>
-    <PropertyGroup>
-        <TMLCodeAssist>enable</TMLCodeAssist>
-        <NamespaceGenerator>enable</NamespaceGenerator>
-    </PropertyGroup>
-</Project>
