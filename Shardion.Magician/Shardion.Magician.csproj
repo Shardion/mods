@@ -1,4 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../LocalReferences.targets" />
+
     <PropertyGroup>
         <TMLCodeAssist>enable</TMLCodeAssist>
         <NamespaceGenerator>enable</NamespaceGenerator>
@@ -19,7 +21,7 @@
     <PropertyGroup>
         <DisplayName>Clientside Lag Prevention</DisplayName>
         <Author>shardion</Author>
-        <Version>1.2.1</Version>
+        <Version>1.3.0</Version>
         <ModSide>Client</ModSide>
 
         <HideCode>false</HideCode>

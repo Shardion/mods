@@ -1,15 +1,15 @@
 <!-- This file is mostly intended for mods which have not yet been ported to Rejuvena.Collate. It does nothing for mods using Collate. -->
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ModLoaderTargets Condition=" '$(OS)' == 'Windows_NT' ">
-      $(USERPROFILE)\Documents\My Games\Terraria\tModLoader\ModSources\tModLoader.targets
-    </ModLoaderTargets>
-    <ModLoaderTargets Condition=" '$(OS)' != 'Windows_NT' ">
-      $(HOME)/.local/share/Terraria/tModLoader/ModSources/tModLoader.targets
-    </ModLoaderTargets>
-    <ModLoaderTargets Condition=" '$(SHDN_TMODLOADER_DATA)' != '' ">
-      $(SHDN_TMODLOADER_DATA)/ModSources/tModLoader.targets
-    </ModLoaderTargets>
+    <ModLoaderData Condition=" '$(OS)' == 'Windows_NT' ">
+      $(USERPROFILE)\Documents\My Games\Terraria\tModLoader
+    </ModLoaderData>
+    <ModLoaderData Condition=" '$(OS)' != 'Windows_NT' ">
+      $(HOME)/.local/share/Terraria/tModLoader
+    </ModLoaderData>
+    <ModLoaderData Condition=" '$(SHDN_TMODLOADER_DATA)' != '' ">
+      $(SHDN_TMODLOADER_DATA)
+    </ModLoaderData>
   </PropertyGroup>
-  <Import Project="$(ModLoaderTargets)" />
+  <Import Project="$(ModLoaderData)/ModSources/tModLoader.targets" />
 </Project>

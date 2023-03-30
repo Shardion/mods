@@ -9,6 +9,12 @@ Because it's client-side, you can use this mod on servers which don't have it.
 
 Changelog:
 
+v1.3.0
+- Added the ability to prevent particles (rain, dust, gore, combat text) from spawning at all
+- Added earlier projectile, NPC and item culling
+- Fixed rain deletion not working at all
+- Updated the mod icon to fit with the current design. ~ Don't you understand that mechanical gloves are the remover of everything? ~
+
 v1.2.0
 - Added rain deletion, since rain can be laggy
 
