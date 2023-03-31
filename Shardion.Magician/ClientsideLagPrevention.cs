@@ -17,11 +17,11 @@ namespace Shardion.Magician
         public static bool BossAlive { get; set; }
         public static bool DoFullbright { get; set; }
         public static bool DoItemCull { get; set; }
-        public static BossConfigurable DoDustDeletion { get; set; }
-        public static BossConfigurable DoCombatTextDeletion { get; set; }
-        public static BossConfigurable DoGoreDeletion { get; set; }
-        public static BossConfigurable DoRainDeletion { get; set; }
         public static BossConfigurable DoItemHide { get; set; }
+        public static BossConfigurable DoDustPrevention { get; set; }
+        public static BossConfigurable DoCombatTextPrevention { get; set; }
+        public static BossConfigurable DoGorePrevention { get; set; }
+        public static BossConfigurable DoRainPrevention { get; set; }
     }
 
     public class ClientsideLagPreventionConfig : ModConfig
@@ -34,45 +34,45 @@ namespace Shardion.Magician
         public bool FullbrightWhenBossAlive { get; set; }
 
         [DefaultValue(true)]
-        [DisplayName("Cull dropped items")]
+        [DisplayName("Do not draw offscreen dropped items")]
         [Tooltip("Only draw dropped items if they are on-screen.")]
         public bool ItemCulling { get; set; }
-
-        [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Delete dust")]
-        [Tooltip("Delete dust as soon as it spawns.")]
-        public BossConfigurable DeleteDust { get; set; }
-
-        [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Delete combat text")]
-        [Tooltip("Delete combat text as soon as it spawns.")]
-        public BossConfigurable DeleteCombatText { get; set; }
-
-        [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Delete gore")]
-        [Tooltip("Delete gore as soon as it spawns.")]
-        public BossConfigurable DeleteGore { get; set; }
-
-        [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Delete rain")]
-        [Tooltip("Delete rain as soon as it spawns.")]
-        public BossConfigurable DeleteRain { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
         [DisplayName("Hide dropped items")]
         [Tooltip("Disable drawing of dropped items.")]
         public BossConfigurable HideItems { get; set; }
 
+        [DefaultValue(BossConfigurable.IfBossAlive)]
+        [DisplayName("Disable dust")]
+        [Tooltip("Disables creation of dust.")]
+        public BossConfigurable DoNotCreateDust { get; set; }
+
+        [DefaultValue(BossConfigurable.IfBossAlive)]
+        [DisplayName("Disable combat text")]
+        [Tooltip("Disables creation of combat text.")]
+        public BossConfigurable DoNotCreateCombatText { get; set; }
+
+        [DefaultValue(BossConfigurable.IfBossAlive)]
+        [DisplayName("Disable gore")]
+        [Tooltip("Disables creation of gore.")]
+        public BossConfigurable DoNotCreateGore { get; set; }
+
+        [DefaultValue(BossConfigurable.IfBossAlive)]
+        [DisplayName("Disable rain")]
+        [Tooltip("Disables creation of rain.")]
+        public BossConfigurable DoNotCreateRain { get; set; }
+
         public override void OnChanged()
         {
             base.OnChanged();
             ClientsideLagPrevention.DoFullbright = FullbrightWhenBossAlive;
             ClientsideLagPrevention.DoItemCull = ItemCulling;
-            ClientsideLagPrevention.DoDustDeletion = DeleteDust;
-            ClientsideLagPrevention.DoCombatTextDeletion = DeleteCombatText;
-            ClientsideLagPrevention.DoGoreDeletion = DeleteGore;
-            ClientsideLagPrevention.DoRainDeletion = DeleteRain;
             ClientsideLagPrevention.DoItemHide = HideItems;
+            ClientsideLagPrevention.DoDustPrevention = DoNotCreateDust;
+            ClientsideLagPrevention.DoCombatTextPrevention = DoNotCreateCombatText;
+            ClientsideLagPrevention.DoGorePrevention = DoNotCreateGore;
+            ClientsideLagPrevention.DoRainPrevention = DoNotCreateRain;
         }
     }
 

@@ -1,19 +1,22 @@
-A client-side lag prevention mod, because for some reason, there's no good client-side ones.
-
-If a boss is alive, fullbright is enabled, and all dust, gore, rain and combat text gets deleted.
-
-Each of these behaviors can be disabled in the config.
-Additionally, dust, gore, rain and combat text deletion can also be enabled all the time, even if a boss is not alive.
-
+A mod which introduces numerous advanced methods of reducing client-side lag.
+Most lag-reduction measures can be enabled constantly or only if a boss is alive, but all can be disabled.
 Because it's client-side, you can use this mod on servers which don't have it.
+
+All lag-reduction measures included as are follows:
+
+- Disable creation of rain, combat text, dust, gores
+- Completely disable the lighting engine
+- Disable redundant rendering of off-screen items
+- Disable rendering of items entirely
 
 Changelog:
 
 v1.3.0
-- Added the ability to prevent particles (rain, dust, gore, combat text) from spawning at all
-- Added earlier projectile, NPC and item culling
-- Fixed rain deletion not working at all
-- Updated the mod icon to fit with the current design. ~ Don't you understand that mechanical gloves are the remover of everything? ~
+- Replaced particle deletion with prevention.
+- Added item culling and the ability to disable item rendering.
+- Ported the mod to Rejuvena.Collate.
+- Rewrote the description.
+- Updated the mod icon to fit with the current template for my mods. ~ Don't you understand that mechanical gloves are the remover of everything? ~
 
 v1.2.0
 - Added rain deletion, since rain can be laggy

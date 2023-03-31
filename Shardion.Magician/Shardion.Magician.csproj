@@ -1,6 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="../LocalReferences.targets" />
-
     <PropertyGroup>
         <TMLCodeAssist>enable</TMLCodeAssist>
         <NamespaceGenerator>enable</NamespaceGenerator>
@@ -8,6 +6,12 @@
 
     <ItemGroup>
         <PackageReference Include="Rejuvena.Collate" Version="1.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="TerrariaHooks">
+            <HintPath>lib/TerrariaHooks.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <PropertyGroup>
