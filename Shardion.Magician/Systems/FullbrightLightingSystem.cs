@@ -9,16 +9,17 @@ namespace Shardion.Magician.Systems
 {
     public class FullbrightSystem : ModSystem
     {
-        private static ILightingEngine _previousLightingEngine;
-        private static bool _previousLightUpdateSetting;
         private static readonly Type _lightingManagerType = typeof(Lighting);
         private static readonly FullbrightLightingEngine _fullbrightEngine = new FullbrightLightingEngine();
+
+        private static ILightingEngine? _previousLightingEngine;
+        private static bool _previousLightUpdateSetting;
         public override void PostDrawTiles() // No appropriate "pre" method
         {
             base.PostDrawTiles();
             // TODO: Reflection to access a field, can be replaced with compiler trickery to do it natively for free FPS
             // This is still faster than vanilla though
-            FieldInfo currentLightingEngine = _lightingManagerType.GetField("_activeEngine", BindingFlags.NonPublic | BindingFlags.Static);
+/*            FieldInfo currentLightingEngine = _lightingManagerType.GetField("_activeEngine", BindingFlags.NonPublic | BindingFlags.Static);
             if (currentLightingEngine != null)
             {
                 if (ClientsideLagPrevention.DoFullbright && ClientsideLagPrevention.BossAlive)
@@ -39,6 +40,19 @@ namespace Shardion.Magician.Systems
                         Main.LightingEveryFrame = _previousLightUpdateSetting;
                     }
                 }
+            }*/
+            // NOTE: This code erroring is fine! It works at build-time; Rejuvena.Collate access transformers don't have OmniSharp integration.
+            if (ClientsideLagPrevention.DoFullbright && ClientsideLagPrevention.BossAlive)
+            {
+                _previousLightingEngine = Lighting._activeEngine;
+                _previousLightUpdateSetting = Main.LightingEveryFrame;
+                Lighting._activeEngine = _fullbrightEngine;
+                Main.LightingEveryFrame = false;
+            }
+            else
+            {
+                Lighting._activeEngine = _previousLightingEngine;
+                Main.LightingEveryFrame = _previousLightUpdateSetting;
             }
         }
     }

@@ -6,15 +6,16 @@ All lag-reduction measures included as are follows:
 
 - Disable creation of rain, combat text, dust, gores
 - Completely disable the lighting engine
-- Disable redundant rendering of off-screen items
-- Disable rendering of items entirely
+- Disable redundant rendering of off-screen dropped items, or all dropped items
 
 Changelog:
 
 v1.3.0
 - Replaced particle deletion with prevention.
 - Added item culling and the ability to disable item rendering.
+- Slightly improved performance of the fullbright lighting engine.
 - Ported the mod to Rejuvena.Collate.
+- Fixed the configuration setting labels.
 - Rewrote the description.
 - Updated the mod icon to fit with the current template for my mods. ~ Don't you understand that mechanical gloves are the remover of everything? ~
 

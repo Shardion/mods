@@ -1,0 +1,3 @@
+v1
+
+public = Terraria.Graphics.Light.ILightingEngine Terraria.Lighting::_activeEngine

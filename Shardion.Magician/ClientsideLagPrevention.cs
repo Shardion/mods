@@ -8,6 +8,7 @@ namespace Shardion.Magician
     public enum BossConfigurable
     {
         Always,
+        [Label("If a boss is alive")]
         IfBossAlive,
         Never,
     }
@@ -29,38 +30,38 @@ namespace Shardion.Magician
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
         [DefaultValue(true)]
-        [DisplayName("Fullbright if a boss is alive")]
-        [Tooltip("Disable the lighting engine when a boss is alive.")]
+        [Label("Fullbright if a boss is alive")]
+        [Tooltip("Disable the lighting engine when a boss is alive, replacing it with an extremely simple\nlighting engine that displays everything at maximum brightness.\nMajor FPS improvement.")]
         public bool FullbrightWhenBossAlive { get; set; }
 
         [DefaultValue(true)]
-        [DisplayName("Do not draw offscreen dropped items")]
-        [Tooltip("Only draw dropped items if they are on-screen.")]
+        [Label("Do not draw offscreen dropped items")]
+        [Tooltip("Only draw dropped items if they are on-screen.\nMinor FPS improvement at no visual cost if there are many dropped items.")]
         public bool ItemCulling { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Hide dropped items")]
-        [Tooltip("Disable drawing of dropped items.")]
+        [Label("Hide dropped items")]
+        [Tooltip("Disable drawing of dropped items.\nMedium FPS improvement if there are many dropped items.")]
         public BossConfigurable HideItems { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Disable dust")]
-        [Tooltip("Disables creation of dust.")]
+        [Label("Disable dust")]
+        [Tooltip("Disables creation of dust.\nMedium FPS improvement.")]
         public BossConfigurable DoNotCreateDust { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Disable combat text")]
-        [Tooltip("Disables creation of combat text.")]
+        [Label("Disable combat text")]
+        [Tooltip("Disables creation of combat text.\nMinor FPS improvement.")]
         public BossConfigurable DoNotCreateCombatText { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Disable gore")]
-        [Tooltip("Disables creation of gore.")]
+        [Label("Disable gore")]
+        [Tooltip("Disables creation of gore.\nMinor FPS improvement.")]
         public BossConfigurable DoNotCreateGore { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [DisplayName("Disable rain")]
-        [Tooltip("Disables creation of rain.")]
+        [Label("Disable rain")]
+        [Tooltip("Disables creation of rain.\nMedium FPS improvement if it is raining.")]
         public BossConfigurable DoNotCreateRain { get; set; }
 
         public override void OnChanged()

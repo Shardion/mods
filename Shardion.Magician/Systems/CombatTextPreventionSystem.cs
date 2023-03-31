@@ -5,41 +5,41 @@ using Terraria.ModLoader;
 
 namespace Shardion.Magician.Systems
 {
-    public class RainPreventionSystem : ModSystem
+    public class CombatTextPreventionSystem : ModSystem
     {
         public override void Load()
         {
-            IL.Terraria.Rain.NewRain += PreventRainSpawning;
+            IL.Terraria.CombatText.NewText_Rectangle_Color_string_bool_bool += PreventTextSpawning;
         }
 
-        private static void PreventRainSpawning(ILContext il)
+        private static void PreventTextSpawning(ILContext il)
         {
             try
             {
                 ILCursor c = new ILCursor(il);
-                ILLabel returnMaxRainLabel = c.DefineLabel();
+                ILLabel returnHundredLabel = c.DefineLabel();
 
-                c.EmitDelegate<Func<bool>>(ShouldRainSpawn);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnMaxRainLabel);
+                c.EmitDelegate<Func<bool>>(ShouldTextSpawn);
+                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnHundredLabel);
 
                 c.GotoNext(i => i.MatchRet());
                 c.Index--;
-                c.MarkLabel(returnMaxRainLabel);
+                c.MarkLabel(returnHundredLabel);
             }
             catch (Exception e)
             {
-                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing MakeRain() failed. Rain cannot be prevented.");
+                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing NewText() failed. Combat text cannot be prevented.");
                 Logging.PublicLogger.Error(e);
             }
         }
 
-        private static bool ShouldRainSpawn()
+        private static bool ShouldTextSpawn()
         {
-            if (ClientsideLagPrevention.DoRainPrevention == BossConfigurable.IfBossAlive && ClientsideLagPrevention.BossAlive)
+            if (ClientsideLagPrevention.DoCombatTextPrevention == BossConfigurable.IfBossAlive && ClientsideLagPrevention.BossAlive)
             {
                 return false;
             }
-            if (ClientsideLagPrevention.DoRainPrevention == BossConfigurable.Always)
+            if (ClientsideLagPrevention.DoCombatTextPrevention == BossConfigurable.Always)
             {
                 return false;
             }
