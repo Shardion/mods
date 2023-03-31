@@ -17,31 +17,43 @@ namespace Shardion.Magician.Systems
         public override void PostDrawTiles() // No appropriate "pre" method
         {
             base.PostDrawTiles();
-            if (ClientsideLagPrevention.DoFullbright && ClientsideLagPrevention.BossAlive && Lighting._activeEngine != _fullbrightEngine)
+
+            // TODO: Reflection to access a field, can be replaced with compiler trickery to do it natively for free FPS
+            // This is still faster than vanilla though
+            FieldInfo? currentLightingEngine = _lightingManagerType.GetField("_activeEngine", BindingFlags.NonPublic | BindingFlags.Static);
+            if (currentLightingEngine != null)
             {
-                _previousLightingEngine = Lighting._activeEngine;
-                _previousLightUpdateSetting = Main.LightingEveryFrame;
-                Lighting._activeEngine = _fullbrightEngine;
-                Main.LightingEveryFrame = false;
-            }
-            else if (_previousLightingEngine != null && Lighting._activeEngine == _fullbrightEngine)
-            {
-                Lighting._activeEngine = _previousLightingEngine;
-                Main.LightingEveryFrame = _previousLightUpdateSetting;
+                if (ClientsideLagPrevention.DoFullbright && ClientsideLagPrevention.BossAlive)
+                {
+                    if (currentLightingEngine.GetValue(null) is ILightingEngine _lightingEngine && _lightingEngine != _fullbrightEngine)
+                    {
+                        _previousLightingEngine = _lightingEngine;
+                        currentLightingEngine.SetValue(null, _fullbrightEngine);
+                        _previousLightUpdateSetting = Main.LightingEveryFrame;
+                        Main.LightingEveryFrame = false;
+                    }
+                }
+                else
+                {
+                    if (currentLightingEngine.GetValue(null) == _fullbrightEngine)
+                    {
+                        currentLightingEngine.SetValue(null, _previousLightingEngine);
+                        Main.LightingEveryFrame = _previousLightUpdateSetting;
+                    }
+                }
             }
         }
-    }
 
-    public class FullbrightLightingEngine : ILightingEngine
-    {
-        public Vector3 GetColor(int x, int y)
+        public class FullbrightLightingEngine : ILightingEngine
         {
-            return Vector3.One;
-        }
+            public Vector3 GetColor(int x, int y)
+            {
+                return Vector3.One;
+            }
 
-        public void Rebuild() { } // No-op
-        public void Clear() { } // No-op
-        public void AddLight(int x, int y, Vector3 color) { } // No-op
-        public void ProcessArea(Rectangle area) { } // No-op
+            public void Rebuild() { } // No-op
+            public void Clear() { } // No-op
+            public void AddLight(int x, int y, Vector3 color) { } // No-op
+            public void ProcessArea(Rectangle area) { } // No-op
+        }
     }
-}
