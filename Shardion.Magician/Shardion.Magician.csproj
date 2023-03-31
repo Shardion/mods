@@ -3,7 +3,7 @@
         <TMLCodeAssist>enable</TMLCodeAssist>
         <BuildIgnore>.collate/,Properties/,.accesstransformer</BuildIgnore>
         <NamespaceGenerator>enable</NamespaceGenerator>
-        <AccessTransformerPaths>$(AccessTransformerPaths);$(MSBuildProjectDirectory)\.accesstransformer</AccessTransformerPaths>
+        <AccessTransformerPaths>$(MSBuildProjectDirectory)/.accesstransformer</AccessTransformerPaths>
     </PropertyGroup>
 
     <ItemGroup>
