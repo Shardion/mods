@@ -18,7 +18,7 @@ namespace Shardion.Magician.Systems
         {
             base.PostDrawTiles();
 
-            // TODO: Reflection to access a field, can be replaced with compiler trickery to do it natively for free FPS
+            // TODO: Reflection to access a field, can be replaced with compiler trickery to do it natively for free FPS(?)
             // This is still faster than vanilla though
             FieldInfo? currentLightingEngine = _lightingManagerType.GetField("_activeEngine", BindingFlags.NonPublic | BindingFlags.Static);
             if (currentLightingEngine != null)
