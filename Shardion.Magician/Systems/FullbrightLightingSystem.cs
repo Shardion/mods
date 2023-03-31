@@ -43,17 +43,18 @@ namespace Shardion.Magician.Systems
                 }
             }
         }
-
-        public class FullbrightLightingEngine : ILightingEngine
-        {
-            public Vector3 GetColor(int x, int y)
-            {
-                return Vector3.One;
-            }
-
-            public void Rebuild() { } // No-op
-            public void Clear() { } // No-op
-            public void AddLight(int x, int y, Vector3 color) { } // No-op
-            public void ProcessArea(Rectangle area) { } // No-op
-        }
     }
+
+    public class FullbrightLightingEngine : ILightingEngine
+    {
+        public Vector3 GetColor(int x, int y)
+        {
+            return Vector3.One;
+        }
+
+        public void Rebuild() { } // No-op
+        public void Clear() { } // No-op
+        public void AddLight(int x, int y, Vector3 color) { } // No-op
+        public void ProcessArea(Rectangle area) { } // No-op
+    }
+}
