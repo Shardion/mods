@@ -23,15 +23,17 @@ namespace Shardion.Magician.Systems
                 ILLabel loopStartLabel = c.DefineLabel();
 
                 c.GotoNext(i => i.MatchLdarg(0));
+                c.Index++;
                 c.MarkLabel(loopStartLabel);
+                c.Emit(Mono.Cecil.Cil.OpCodes.Pop);
                 c.Emit(Mono.Cecil.Cil.OpCodes.Ldloc_0);
                 c.EmitDelegate<Func<int, bool>>(ItemShouldBeDrawn);
                 c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, afterDrawLabel);
+                c.Emit(Mono.Cecil.Cil.OpCodes.Ldarg_0);
 
                 c.GotoNext(i => i.MatchCall<Main>("DrawItem"));
                 c.Index++;
                 c.MarkLabel(afterDrawLabel);
-                c.Index--;
             }
             catch (Exception e)
             {
@@ -42,7 +44,11 @@ namespace Shardion.Magician.Systems
 
         private static bool ItemShouldBeDrawn(int index)
         {
-            if ((ClientsideLagPrevention.DoItemHide == BossConfigurable.IfBossAlive && ClientsideLagPrevention.BossAlive) || ClientsideLagPrevention.DoItemHide == BossConfigurable.Always)
+            if (ClientsideLagPrevention.DoItemHide == BossConfigurable.Always)
+            {
+                return false;
+            }
+            if (ClientsideLagPrevention.DoItemHide == BossConfigurable.IfBossAlive && ClientsideLagPrevention.BossAlive)
             {
                 return false;
             }
