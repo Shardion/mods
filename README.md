@@ -9,14 +9,14 @@ To build these mods, you must first download Collate (`dotnet restore` if using 
 The many project names may feel confusing, but trust me, it's more annoying to refer to them by their full names.
 A quick overview is as follows:
 
-- `Shardion.Ether`: A mod containing a single, Mutant-style bossfight, intended to be the highest quality fight I can make.
-- `Shardion.Zephyros`: A mod for all of my random fixes and tweaks. Needs a rewrite.
-- `Shardion.Limbo`: A mod containing a port of DOOM... to Terraria? <!-- The funny codename was reassigned to a file compressor. This is the best ending. -->
-- `Shardion.Flashback`: A mod which adds a vanity item layering system. (Which hasn't been ported over from Zephyros yet...)
 - `Shardion.Magician`: A mod which attempts to remove or optimize as many sources of client-side lag as possible.
+- `Shardion.Ether`: A mod containing a single, Mutant-style bossfight, intended to be the highest quality fight I can make.
+- `Shardion.Zephyros`: A mod which adds quality-of-life changes that let players focus on the gameplay, instead of removing it.
+- `Shardion.Resistance`: A mod which adds mechanics expanding every area of the game *except* combat and boss-fighting. No weapons included!
+- `Shardion.Limbo`: A mod containing a port of DOOM... to Terraria? <!-- The funny codename was reassigned to a file compressor. This is the best ending. -->
 
 ## Contributing
-Contributions are welcome! Just remember these two guidelines:
+Contributions are welcome and greatly appreciated! Just remember these two guidelines:
 
 - Please format your code!
   There should be a menu option in your IDE of choice (or you can run `dotnet format`). It helps me and other contributors read your code, so we can get it merged sooner.

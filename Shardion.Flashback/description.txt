@@ -1,7 +1,0 @@
-Project Flashback adds support for layering multiple vanity (or armor) items on top of eachother, as well as some new, more contemporary vanity items intended for use with the feature.
-This is done through a new furniture item, the Fitting Table.
-
-Layered vanity items do not function as armor, even if armor is used to make them.
-Layered vanity items cannot be dyed directly, but the individual items that compose them can be dyed at the Fitting Table.
-The items used in a layered vanity item cannot be recovered. 
-(It's a good idea to test them with cheats first, before using them in a playthrough.)
