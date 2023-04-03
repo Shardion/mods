@@ -1,0 +1,51 @@
+Mods: {
+    ClientsideLagPrevention: {
+        Config: {
+            # Enums
+            BossConfigurable.IfBossAlive: If a boss is alive
+
+            # Config options
+            FullbrightWhenBossAlive: {
+                Label: Fullbright if a boss is alive
+                Tooltip: Disable the lighting engine when a boss is alive, replacing it with an extremely simple\nlighting engine that disaplys everything at maximum brightness.\nMajor FPS improvement.
+            }
+            ItemCulling: {
+                Label: Do not draw offscreen dropped items
+                Tooltip: Only draw dropped items if they are on-screen.\nMinor FPS improvement at no visual cost if there are many dropped items.
+            }
+            HideItems: {
+                Label: Hide dropped items
+                Tooltip: Disable drawing of dropped items.\Minor FPS improvement if there are many dropped items.
+            }
+            DoNotCreateDust: {
+                Label: Disable dust
+                Tooltip: Disables creation of dust.\nMedium FPS improvement.
+            }
+            DoNotCreateCombatText: {
+                Label: Disable combat text
+                Tooltip: Disables creation of combat text.\nMinor FPS improvement.
+            }
+            DoNotCreateGore: {
+                Label: Disable gore
+                Tooltip: Disables creation of gore.\nMinor FPS improvement.
+            }
+            DoNotCreateRain: {
+                Label: Disable rain
+                Tooltip: Disables creation of rain.\nMedium FPS improvement if it is raining.
+            }
+        }
+        Common: {
+            # IL edit failiures
+            ILEditDrawItemsFail: IL editing Main.DrawItems() failed. Items cannot be hidden or culled.
+            ILEditNewGoreFail: IL editing Gore.NewGore() failed. Gores cannot be disabled.
+            ILEditNewRainFail: IL editing Rain.NewRain() failed. Rain cannot be disabled.
+            ILEditNewDustFail: IL editing Dust.NewDust() failed. Dust cannot be disabled.
+            ILEditNewTextFail: IL editing CombatText.NewText() failed. Combat text cannot be disabled.
+
+            DisabledDueToILEditFail: This feature does not function, due to a related IL edit failing.\nPlease make sure none of the active mods are conflicting.
+
+            # Generic compatibility issue warning
+            CompatibilityIssueWarning: Please make sure none of the active mods are conflicting with Clientside Lag Prevention.
+        }
+    }
+}
