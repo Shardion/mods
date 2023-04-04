@@ -20,8 +20,8 @@ namespace Shardion.Zephyros.Content.Debug
         public override bool CanUseItem(Player player)
         {
             base.OnConsumeItem(player);
-            player.GetModPlayer<BuffManagerPlayer>().AddBuffManager(new PotionRitual(BuffID.Ironskin, new Timer() { Minutes = 1 }, PotionRitualActivityMode.BossNotAlive, player));
-            player.GetModPlayer<BuffManagerPlayer>().AddBuffManager(new BuffManager(BuffID.Lifeforce, new Timer() { Minutes = 1 }, player));
+            _ = player.GetModPlayer<BuffManagerPlayer>().AddBuffManager(new PotionRitual(BuffID.Ironskin, new Timer() { Minutes = 1 }, PotionRitualActivityMode.BossNotAlive, player));
+            _ = player.GetModPlayer<BuffManagerPlayer>().AddBuffManager(new BuffManager(BuffID.Lifeforce, new Timer() { Minutes = 1 }, player));
             return true;
         }
     }
