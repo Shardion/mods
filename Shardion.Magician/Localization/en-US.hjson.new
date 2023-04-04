@@ -2,7 +2,11 @@ Mods: {
     ClientsideLagPrevention: {
         Config: {
             # Enums
-            BossConfigurable.IfBossAlive: If a boss is alive
+            BossConfigurable: {
+                Always: Always
+                IfBossAlive: If a boss is alive
+                Never: Never
+            }
 
             # Config options
             FullbrightWhenBossAlive: {
@@ -33,6 +37,10 @@ Mods: {
                 Label: Disable rain
                 Tooltip: Disables creation of rain.\nMedium FPS improvement if it is raining.
             }
+            ShowCompatibilityWarnings: {
+                Label: Show compatibility warnings
+                Tooltip: Upon joining a world, if any features are broken by another mod, prints a warning in chat.
+            }
         }
         Common: {
             # IL edit failiures
@@ -42,10 +50,10 @@ Mods: {
             ILEditNewDustFail: IL editing Dust.NewDust() failed. Dust cannot be disabled.
             ILEditNewTextFail: IL editing CombatText.NewText() failed. Combat text cannot be disabled.
 
-            DisabledDueToILEditFail: This feature does not function, due to a related IL edit failing.\nPlease make sure none of the active mods are conflicting.
+            DisabledDueToILEditFail: This feature does not function, due to a related IL edit failing.\nPlease make sure none of the loaded mods are conflicting.
 
             # Generic compatibility issue warning
-            CompatibilityIssueWarning: Please make sure none of the active mods are conflicting with Clientside Lag Prevention.
+            CompatibilityIssueWarning: Please make sure none of the loaded mods are conflicting with Clientside Lag Prevention.
         }
     }
 }

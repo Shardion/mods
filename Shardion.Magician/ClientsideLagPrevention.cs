@@ -7,15 +7,16 @@ namespace Shardion.Magician
 {
     public enum BossConfigurable
     {
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Always")]
         Always,
-        [Label("If a boss is alive")]
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.IfBossAlive")]
         IfBossAlive,
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Never")]
         Never,
     }
 
     public class ClientsideLagPrevention : Mod
     {
-        public static bool BossAlive { get; set; }
         public static bool DoFullbright { get; set; }
         public static bool DoItemCull { get; set; }
         public static BossConfigurable DoItemHide { get; set; }
@@ -23,6 +24,24 @@ namespace Shardion.Magician
         public static BossConfigurable DoCombatTextPrevention { get; set; }
         public static BossConfigurable DoGorePrevention { get; set; }
         public static BossConfigurable DoRainPrevention { get; set; }
+        public static bool DoCompatibilityWarnings { get; set; }
+
+        public static bool BossAlive { get; set; }
+
+        public static ClientsideLagPrevention? Instance;
+
+        public override void Load()
+        {
+            Instance = this;
+        }
+
+        public override void Unload()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
     }
 
     public class ClientsideLagPreventionConfig : ModConfig
@@ -30,39 +49,44 @@ namespace Shardion.Magician
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
         [DefaultValue(true)]
-        [Label("Fullbright if a boss is alive")]
-        [Tooltip("Disable the lighting engine when a boss is alive, replacing it with an extremely simple\nlighting engine that displays everything at maximum brightness.\nMajor FPS improvement.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.FullbrightWhenBossAlive.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.FullbrightIfBossAlive.Tooltip")]
         public bool FullbrightWhenBossAlive { get; set; }
 
         [DefaultValue(true)]
-        [Label("Do not draw offscreen dropped items")]
-        [Tooltip("Only draw dropped items if they are on-screen.\nMinor FPS improvement at no visual cost if there are many dropped items.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.ItemCulling.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.ItemCulling.Tooltip")]
         public bool ItemCulling { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("Hide dropped items")]
-        [Tooltip("Disable drawing of dropped items.\nMedium FPS improvement if there are many dropped items.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.HideItems.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.HideItems.Tooltip")]
         public BossConfigurable HideItems { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("Disable dust")]
-        [Tooltip("Disables creation of dust.\nMedium FPS improvement.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Tooltip")]
         public BossConfigurable DoNotCreateDust { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("Disable combat text")]
-        [Tooltip("Disables creation of combat text.\nMinor FPS improvement.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Tooltip")]
         public BossConfigurable DoNotCreateCombatText { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("Disable gore")]
-        [Tooltip("Disables creation of gore.\nMinor FPS improvement.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateGore.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateGore.Tooltip")]
         public BossConfigurable DoNotCreateGore { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("Disable rain")]
-        [Tooltip("Disables creation of rain.\nMedium FPS improvement if it is raining.")]
+        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateRain.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateRain.Tooltip")]
         public BossConfigurable DoNotCreateRain { get; set; }
+
+        [DefaultValue(true)]
+        [Label("$Mods.ClientsideLagPrevention.Config.ShowCompatibilityWarnings.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.ShowCompatibilityWarnings.Tooltip")]
+        public bool ShowCompatibilityWarnings { get; set; }
 
         public override void OnChanged()
         {
@@ -74,6 +98,7 @@ namespace Shardion.Magician
             ClientsideLagPrevention.DoCombatTextPrevention = DoNotCreateCombatText;
             ClientsideLagPrevention.DoGorePrevention = DoNotCreateGore;
             ClientsideLagPrevention.DoRainPrevention = DoNotCreateRain;
+            ClientsideLagPrevention.DoCompatibilityWarnings = ShowCompatibilityWarnings;
         }
     }
 

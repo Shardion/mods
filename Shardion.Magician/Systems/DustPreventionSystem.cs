@@ -28,8 +28,6 @@ namespace Shardion.Magician.Systems
             }
             catch (Exception e)
             {
-                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing NewDust() failed. Dust cannot be prevented.");
-                Logging.PublicLogger.Error(e);
             }
         }
 
