@@ -14,6 +14,7 @@ A quick overview is as follows:
 - `Shardion.Zephyros`: A mod which adds quality-of-life changes that let players focus on the gameplay, instead of removing it.
 - `Shardion.Resistance`: A mod which adds mechanics expanding every area of the game *except* combat and boss-fighting. No weapons included!
 - `Shardion.Limbo`: A mod containing a port of DOOM... to Terraria? <!-- The funny codename was reassigned to a file compressor. This is the best ending. -->
+- `Shardion.Identic`: A class library which adds `ModConfig` widgets to view a mod's source code and license
 
 ## Contributing
 Contributions are welcome and greatly appreciated! Just remember these two guidelines:
