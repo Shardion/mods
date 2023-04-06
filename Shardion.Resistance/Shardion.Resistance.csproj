@@ -18,12 +18,11 @@
 
     <PropertyGroup>
         <TMLCodeAssist>enable</TMLCodeAssist>
-        <BuildIgnore>.collate/,Properties/,.accesstransformer</BuildIgnore>
         <NamespaceGenerator>enable</NamespaceGenerator>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Shardion.Identic\Shardion.Identic.csproj" />
+        <ProjectReference Include="..\Shardion.Identic\Shardion.Identic.csproj" />
     </ItemGroup>
 
     <ItemGroup>

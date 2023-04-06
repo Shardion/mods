@@ -1,9 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <AssemblyName>DoomInTerraria</AssemblyName>
-        <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <RootNamespace>Shardion.Limbo</RootNamespace>
-    </PropertyGroup>
-</Project>

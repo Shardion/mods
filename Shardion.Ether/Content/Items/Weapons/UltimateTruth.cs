@@ -6,11 +6,6 @@ namespace Shardion.Ether.Content.Items.Weapons
 {
     public class UltimateTruth : EtherItem
     {
-        public override void SetStaticDefaults()
-        {
-            Tooltip.SetDefault("'A defeated foe's blade of blinding lights, now passed down to you'");
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 15000;

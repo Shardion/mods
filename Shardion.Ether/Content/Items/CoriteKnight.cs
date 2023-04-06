@@ -7,11 +7,6 @@ namespace Shardion.Ether.Content.Items
 {
     public class CoriteKnight : EtherItem
     {
-        public override void SetStaticDefaults()
-        {
-            Tooltip.SetDefault("Summons ?");
-        }
-
         public override void SetDefaults()
         {
             Item.width = 40;
@@ -44,7 +39,7 @@ namespace Shardion.Ether.Content.Items
                 }
                 else
                 {
-                    NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
                 }
             }
             return true;

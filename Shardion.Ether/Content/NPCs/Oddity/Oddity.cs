@@ -24,7 +24,6 @@ namespace Shardion.Ether.Content.NPCs.Oddity
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oddity");
             NPCID.Sets.MPAllowedEnemies[Type] = true;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
             NPCDebuffImmunityData debuffData = new()
