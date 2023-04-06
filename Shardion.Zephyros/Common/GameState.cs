@@ -21,6 +21,7 @@ namespace Shardion.Zephyros.Common.Utilities
                 if (npc.boss)
                 {
                     GameState.BossAlive = true;
+                    return;
                 }
             }
         }

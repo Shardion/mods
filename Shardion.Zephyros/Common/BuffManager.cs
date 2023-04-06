@@ -15,7 +15,6 @@ namespace Shardion.Zephyros.Common.Utilities
         public Timer Duration { get; set; } = new();
         public virtual bool HasDuration => true;
 
-        private int ManagedBuffDuration;
         private int ManagedBuffIndex = -1;
 
         public BuffManager(int type, Timer duration, Player player)

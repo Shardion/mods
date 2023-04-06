@@ -7,11 +7,8 @@ namespace Shardion.Magician
 {
     public enum BossConfigurable
     {
-        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Always")]
         Always,
-        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.IfBossAlive")]
         IfBossAlive,
-        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Never")]
         Never,
     }
 
@@ -50,7 +47,7 @@ namespace Shardion.Magician
 
         [DefaultValue(true)]
         [Label("$Mods.ClientsideLagPrevention.Config.FullbrightWhenBossAlive.Label")]
-        [Tooltip("$Mods.ClientsideLagPrevention.Config.FullbrightIfBossAlive.Tooltip")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.FullbrightWhenBossAlive.Tooltip")]
         public bool FullbrightWhenBossAlive { get; set; }
 
         [DefaultValue(true)]

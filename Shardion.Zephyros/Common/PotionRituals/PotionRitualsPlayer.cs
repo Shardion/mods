@@ -38,7 +38,7 @@ namespace Shardion.Zephyros.Common.PotionRituals
                 }
                 else
                 {
-                    BuffManagers.Remove(manager);
+                    _ = BuffManagers.Remove(manager);
                 }
             }
         }

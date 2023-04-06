@@ -9,27 +9,33 @@ namespace Shardion.Magician.Systems
     {
         public override void Load()
         {
-            IL.Terraria.CombatText.NewText_Rectangle_Color_string_bool_bool += PreventTextSpawning;
+            try
+            {
+                IL_CombatText.NewText_Rectangle_Color_string_bool_bool += PreventTextSpawning;
+            }
+            catch (Exception e)
+            {
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewTextFail", e);
+            }
         }
 
         private static void PreventTextSpawning(ILContext il)
         {
             try
             {
-                ILCursor c = new ILCursor(il);
+                ILCursor c = new(il);
                 ILLabel returnHundredLabel = c.DefineLabel();
 
-                c.EmitDelegate<Func<bool>>(ShouldTextSpawn);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnHundredLabel);
+                _ = c.EmitDelegate(ShouldTextSpawn);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnHundredLabel);
 
-                c.GotoNext(i => i.MatchRet());
+                _ = c.GotoNext(i => i.MatchRet());
                 c.Index--;
                 c.MarkLabel(returnHundredLabel);
             }
             catch (Exception e)
             {
-                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing NewText() failed. Combat text cannot be prevented.");
-                Logging.PublicLogger.Error(e);
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewTextFail", e);
             }
         }
 

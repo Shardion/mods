@@ -20,7 +20,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity
 
         private Texture2D? _oddityRingTexture = null;
         private float _oddityRingRotation;
-        private static readonly Color _oddityRingColor = new Color(1f, 1f, 1f, 0.7f);
+        private static readonly Color _oddityRingColor = new(1f, 1f, 1f, 0.7f);
 
         public override void SetStaticDefaults()
         {

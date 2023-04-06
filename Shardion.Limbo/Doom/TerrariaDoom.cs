@@ -29,7 +29,7 @@ namespace Shardion.Limbo.Doom
             music = new();
             userInput = new();
 
-            doom = new ManagedDoom.Doom(new CommandLineArgs(new string[] { "-iwad", "/tmp/DOOM.WAD" } ), config, content, video, sound, music, userInput);
+            doom = new ManagedDoom.Doom(new CommandLineArgs(new string[] { "-iwad", "/tmp/DOOM.WAD" }), config, content, video, sound, music, userInput);
         }
 
         public Texture2D GetDoomTexture()

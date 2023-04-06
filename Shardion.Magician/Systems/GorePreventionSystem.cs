@@ -9,27 +9,33 @@ namespace Shardion.Magician.Systems
     {
         public override void Load()
         {
-            IL.Terraria.Gore.NewGore_IEntitySource_Vector2_Vector2_int_float += PreventGoreSpawning;
+            try
+            {
+                IL_Gore.NewGore_IEntitySource_Vector2_Vector2_int_float += PreventGoreSpawning;
+            }
+            catch (Exception e)
+            {
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewGoreFail", e);
+            }
         }
 
         private static void PreventGoreSpawning(ILContext il)
         {
             try
             {
-                ILCursor c = new ILCursor(il);
+                ILCursor c = new(il);
                 ILLabel returnMaxGoreLabel = c.DefineLabel();
 
-                c.EmitDelegate<Func<bool>>(ShouldGoreSpawn);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnMaxGoreLabel);
+                _ = c.EmitDelegate(ShouldGoreSpawn);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnMaxGoreLabel);
 
-                c.GotoNext(i => i.MatchRet());
+                _ = c.GotoNext(i => i.MatchRet());
                 c.Index--;
                 c.MarkLabel(returnMaxGoreLabel);
             }
             catch (Exception e)
             {
-                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing NewGore() failed. Gores cannot be prevented.");
-                Logging.PublicLogger.Error(e);
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewGoreFail", e);
             }
         }
 

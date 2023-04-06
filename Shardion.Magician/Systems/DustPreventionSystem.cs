@@ -9,25 +9,33 @@ namespace Shardion.Magician.Systems
     {
         public override void Load()
         {
-            IL.Terraria.Dust.NewDust += PreventDustSpawning;
+            try
+            {
+                IL_Dust.NewDust += PreventDustSpawning;
+            }
+            catch (Exception e)
+            {
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewDustFail", e);
+            }
         }
 
         private static void PreventDustSpawning(ILContext il)
         {
             try
             {
-                ILCursor c = new ILCursor(il);
+                ILCursor c = new(il);
                 ILLabel returnSixThousandLabel = c.DefineLabel();
 
-                c.EmitDelegate<Func<bool>>(ShouldDustSpawn);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnSixThousandLabel);
+                _ = c.EmitDelegate(ShouldDustSpawn);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, returnSixThousandLabel);
 
-                c.GotoNext(i => i.MatchRet());
+                _ = c.GotoNext(i => i.MatchRet());
                 c.Index--;
                 c.MarkLabel(returnSixThousandLabel);
             }
             catch (Exception e)
             {
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditNewDustFail", e);
             }
         }
 

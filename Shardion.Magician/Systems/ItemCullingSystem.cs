@@ -11,7 +11,7 @@ namespace Shardion.Magician.Systems
         public override void Load()
         {
             base.Load();
-            IL.Terraria.Main.DrawItems += HookItemDrawing;
+            IL_Main.DrawItems += HookItemDrawing;
         }
 
         private static void HookItemDrawing(ILContext il)
@@ -22,16 +22,16 @@ namespace Shardion.Magician.Systems
                 ILLabel afterDrawLabel = c.DefineLabel();
                 ILLabel loopStartLabel = c.DefineLabel();
 
-                c.GotoNext(i => i.MatchLdarg(0));
+                _ = c.GotoNext(i => i.MatchLdarg(0));
                 c.Index++;
                 c.MarkLabel(loopStartLabel);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Pop);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Ldloc_0);
-                c.EmitDelegate<Func<int, bool>>(ItemShouldBeDrawn);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, afterDrawLabel);
-                c.Emit(Mono.Cecil.Cil.OpCodes.Ldarg_0);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Pop);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Ldloc_0);
+                _ = c.EmitDelegate(ItemShouldBeDrawn);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Brfalse_S, afterDrawLabel);
+                _ = c.Emit(Mono.Cecil.Cil.OpCodes.Ldarg_0);
 
-                c.GotoNext(i => i.MatchCall<Main>("DrawItem"));
+                _ = c.GotoNext(i => i.MatchCall<Main>("DrawItem"));
                 c.Index++;
                 c.MarkLabel(afterDrawLabel);
             }

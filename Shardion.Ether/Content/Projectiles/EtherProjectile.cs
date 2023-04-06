@@ -13,11 +13,7 @@ namespace Shardion.Ether.Content.Projectiles
 
         protected string FullNameToTexturePath(string? maybeName, string append)
         {
-            if (maybeName is string name)
-            {
-                return name.Replace(".", "/").Replace("Content", "Assets").Replace("Shardion/Ether", "ShardionsOddEncounter") + append;
-            }
-            return base.Texture;
+            return (maybeName?.Replace(".", "/").Replace("Content", "Assets").Replace("Shardion/Ether", "ShardionsOddEncounter") + append) ?? base.Texture;
         }
     }
 }

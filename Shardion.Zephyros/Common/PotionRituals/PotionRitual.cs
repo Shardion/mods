@@ -35,11 +35,7 @@ namespace Shardion.Zephyros.Common.PotionRituals
 
         public override bool PreUpdate()
         {
-            if ((ActivityMode == PotionRitualActivityMode.BossAlive && GameState.BossAlive) || (ActivityMode == PotionRitualActivityMode.BossNotAlive && !GameState.BossAlive))
-            {
-                return true;
-            }
-            return false;
+            return (ActivityMode == PotionRitualActivityMode.BossAlive && GameState.BossAlive) || (ActivityMode == PotionRitualActivityMode.BossNotAlive && !GameState.BossAlive);
         }
 
         public override string OnSerialize(string serializedManagedBuff)
@@ -49,13 +45,10 @@ namespace Shardion.Zephyros.Common.PotionRituals
 
         public override void OnDeserialize(string[] serializedManagedBuffParts)
         {
-            if (Enum.TryParse<PotionRitualActivityMode>(serializedManagedBuffParts[2], out PotionRitualActivityMode activityMode))
+            ActivityMode = PotionRitualActivityMode.BossAlive;
+            if (Enum.TryParse(serializedManagedBuffParts[2], out PotionRitualActivityMode activityMode))
             {
                 ActivityMode = activityMode;
-            }
-            else
-            {
-                ActivityMode = PotionRitualActivityMode.BossAlive;
             }
         }
 
