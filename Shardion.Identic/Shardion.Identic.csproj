@@ -9,15 +9,9 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <AssemblyName>Identic</AssemblyName>
-        <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <RootNamespace>Shardion.Identic</RootNamespace>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <DisplayName>Identic</DisplayName>
+        <AssemblyName>Identic</AssemblyName>
+        <RootNamespace>Shardion.Identic</RootNamespace>
         <Author>shardion</Author>
         <Version>1.0.0</Version>
         <ModSide>Both</ModSide>
@@ -25,10 +19,16 @@
         <HideCode>false</HideCode>
         <HideResources>false</HideResources>
         <IncludeSource>true</IncludeSource>
+
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     </PropertyGroup>
 
     <!-- Don't build mod with Collate -->
     <Target Name="ModifyAssemblyReferences" BeforeTargets="ResolveAssemblyReferences"/>
     <Target Name="IncludeModReferences" AfterTargets="ModifyAssemblyReferences"/>
+    <Target Name="ModifyModAssembly" AfterTargets="Build"/>
     <Target Name="PackageMod" AfterTargets="ModifyModAssembly"/>
 </Project>

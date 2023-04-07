@@ -17,6 +17,7 @@
         <HideCode>false</HideCode>
         <HideResources>false</HideResources>
         <IncludeSource>true</IncludeSource>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     </PropertyGroup>
 
     <PropertyGroup>

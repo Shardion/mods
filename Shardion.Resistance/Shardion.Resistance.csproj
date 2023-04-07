@@ -14,6 +14,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -22,7 +23,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Shardion.Identic\Shardion.Identic.csproj" />
+        <!-- Disabled, because Collate doesn't understand project references. -->
+        <!-- <ProjectReference Include="..\Shardion.Identic\Shardion.Identic.csproj" /> -->
+
+        <Reference Include="lib/Identic.dll"/>
     </ItemGroup>
 
     <ItemGroup>

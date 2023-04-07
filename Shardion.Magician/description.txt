@@ -10,6 +10,11 @@ All lag-reduction measures included as are follows:
 
 Changelog:
 
+v1.4.0 (for 1.4.4)
+- Added warnings if any features are broken by another mod.
+- Added localization support.
+- Fixed mod source code not being included with the mod.
+
 v1.3.0
 - Replaced particle deletion with prevention.
 - Added item culling and the ability to disable item rendering.

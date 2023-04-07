@@ -1,4 +1,6 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Terraria;
 using Terraria.ModLoader.Config;
 using Shardion.Identic;
 
@@ -12,9 +14,5 @@ namespace Shardion.Resistance.Common.Configuration
         [Label("$Mods.Horizon.Config.ViewLicense")]
         [CustomModConfigItem(typeof(ViewLicenseElement))]
         public string ViewLicense => "Horizon";
-
-        public override void OnLoaded()
-        {
-        }
     }
 }
