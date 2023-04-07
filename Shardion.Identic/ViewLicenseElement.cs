@@ -10,7 +10,7 @@ namespace Shardion.Identic
 {
     public class ViewLicenseElement : ClickableButtonElement
     {
-        private UIPanel? _textContainer;
+        private UIElement? _textContainer;
         private UIScrollbar? _textContainerScrollbar;
         private UIMessageBox? _text;
         private bool _expanded;
@@ -52,16 +52,16 @@ namespace Shardion.Identic
         {
             if (_expanded && _justChangedState)
             {
-                Height.Set(_originalHeight.Pixels + 400f, 0f);
-                Append(_text);
+                MinHeight.Set(_originalHeight.Pixels + 405f, 0f);
                 _text?.SetText(_licenseText, 0.80f, false);
+                Append(_text);
                 _justChangedState = false;
             }
             else if (!_expanded && _justChangedState)
             {
-                Height.Set(_originalHeight.Pixels, 0f);
-                _text?.SetText("");
+                MinHeight.Set(_originalHeight.Pixels, 0f);
                 _text?.Remove();
+                _text?.SetText("");
                 _justChangedState = false;
             }
             base.Update(gameTime);
@@ -70,20 +70,15 @@ namespace Shardion.Identic
         public override void OnInitialize()
         {
             base.OnInitialize();
-
-            _textContainer = new();
-            _textContainer.Top.Set(Height.Pixels, 0f);
-            _textContainer.Width = StyleDimension.Fill;
-            _textContainer.Height.Set(600f, 0f);
+            _originalHeight = Height;
 
             _text = new("");
             _text.Width = StyleDimension.Fill;
-            _text.Height = StyleDimension.Fill;
-            _text.Height.Set(600f, 0f);
+            _text.Height.Set(400f, 0);
             _text.Top.Set(Height.Pixels, 0f);
 
             _textContainerScrollbar = new();
-            _textContainerScrollbar.WithView(400f, 1000f);
+            _textContainerScrollbar.WithView(100f, 1000f);
             _textContainerScrollbar.HAlign = 1.0f;
             _textContainerScrollbar.Height = StyleDimension.Fill;
 
@@ -91,9 +86,7 @@ namespace Shardion.Identic
             _text.Append(_textContainerScrollbar);
             Append(_text);
 
-            MaxHeight.Set(Height.Pixels + 400f, 0f);
-
-            _originalHeight = Height;
+            MaxHeight.Set(Height.Pixels + 430f, 0f);
             _justChangedState = true;
         }
 
