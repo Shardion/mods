@@ -1,5 +1,6 @@
-// Mostly copied from tModLoader, with modifications, because UIMessageBox is internal
+// Mostly copied from tModLoader because UIMessageBox is internal
 // https://github.com/tModLoader/tModLoader/blob/65f3825badfed4773808e015b8ba32dae58e8b53/patches/tModLoader/Terraria/ModLoader/UI/UIMessageBox.cs
+// Everything after this line is covered by the license in ./LICENSE-tModLoader
 
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
