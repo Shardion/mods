@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Terraria.UI;
@@ -7,31 +5,9 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.GameContent.UI.States;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
-using Terraria.ModLoader.Config.UI;
 
 namespace Shardion.Identic
 {
-    public class ClickableButtonElement : ConfigElement
-    {
-        public virtual void ButtonClicked(string parameter)
-        {
-
-        }
-
-        public override void LeftClick(UIMouseEvent evt)
-        {
-            base.LeftClick(evt);
-            if (GetObject() is string value)
-            {
-                ButtonClicked(value);
-            }
-            else
-            {
-                Logging.PublicLogger.Error($"Clickable button element called with non-string value: {GetObject()}");
-            }
-        }
-    }
-
     public class ViewLicenseElement : ClickableButtonElement
     {
         private UIPanel? _textContainer;
@@ -78,7 +54,6 @@ namespace Shardion.Identic
             {
                 Height.Set(_originalHeight.Pixels + 400f, 0f);
                 Append(_text);
-//                _text?.SetText("very long text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhi how ya doin", 0.80f, false);
                 _text?.SetText(_licenseText, 0.80f, false);
                 _justChangedState = false;
             }
@@ -159,24 +134,5 @@ namespace Shardion.Identic
                 }
             }
         }
-    }
-
-    public class ViewSourceElement : ClickableButtonElement
-    {
-        public override void ButtonClicked(string parameter)
-        {
-            OpenURI(parameter);
-        }
-
-        private static void OpenURI(string uri)
-        {
-
-        }
-    }
-
-    public interface IHasSourceCodeAvailable
-    {
-        public string SourceCodeURI { get; }
-        // Popping calcs on unexpecting modders since 2023
     }
 }

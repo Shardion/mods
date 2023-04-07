@@ -14,5 +14,10 @@ namespace Shardion.Resistance.Common.Configuration
         [Label("$Mods.Horizon.Config.ViewLicense")]
         [CustomModConfigItem(typeof(ViewLicenseElement))]
         public string ViewLicense => "Horizon";
+
+        [JsonIgnore]
+        [Label("$Mods.Horizon.Config.ViewSource")]
+        [CustomModConfigItem(typeof(ViewSourceElement))]
+        public string ViewSource => "https://github.com/shardion/mods/tree/1.4.4/Shardion.Resistance/";
     }
 }
