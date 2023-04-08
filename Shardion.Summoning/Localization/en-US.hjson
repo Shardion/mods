@@ -12,7 +12,7 @@ Mods: {
                 Tooltip: '''
                          View the mod's source code, from which the mod is compiled
                          The source code of the version you have can be obtained with tModReader
-                         Click the "Extract" button under the mod's description in the mod list
+                         Click the "Extract" button under the mod's description, which can be viewed from the mod list
                          '''
             }
         }
