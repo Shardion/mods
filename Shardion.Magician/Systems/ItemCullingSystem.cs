@@ -37,8 +37,7 @@ namespace Shardion.Magician.Systems
             }
             catch (Exception e)
             {
-                Logging.PublicLogger.Error("Clientside Lag Prevention: IL editing DrawItems() failed. Items cannot be culled or hidden.");
-                Logging.PublicLogger.Error(e);
+                CompatibilityWarningSystem.AddCompatibilityWarning("Mods.ClientsideLagPrevention.Common.ILEditDrawItemsFail", e);
             }
         }
 

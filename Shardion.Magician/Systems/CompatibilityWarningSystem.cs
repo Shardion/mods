@@ -11,6 +11,7 @@ namespace Shardion.Magician.Systems
         private static readonly List<string> _delayedCompatibilityWarnings = new();
         private static bool _loadedIntoWorld;
         private static bool _sentPostWarning;
+        private static bool _fireOnce = true;
 
         /// <summary>
         /// Adds a compatibility warning.
@@ -21,10 +22,10 @@ namespace Shardion.Magician.Systems
         {
             if (_loadedIntoWorld)
             {
-                Main.NewText(Language.GetText(translationKey));
+                Main.NewText(Language.GetTextValue(translationKey), 255, 0, 0);
                 if (!_sentPostWarning)
                 {
-                    Main.NewText(Language.GetText("Mods.ClientsideLagPrevention.Common.CompatibilityIssueWarning"));
+                    Main.NewText(Language.GetTextValue("Mods.ClientsideLagPrevention.Common.CompatibilityIssueWarning"), 255, 0, 0);
                     _sentPostWarning = true;
                 }
             }
@@ -39,24 +40,27 @@ namespace Shardion.Magician.Systems
             }
         }
 
-        public override void OnWorldLoad()
+        public override void PostUpdateEverything()
         {
-            base.OnWorldLoad();
-            _loadedIntoWorld = true;
-            if (ClientsideLagPrevention.DoCompatibilityWarnings && _delayedCompatibilityWarnings.Count > 0)
+            base.PostUpdateEverything();
+            if (_fireOnce)
             {
-                foreach (string warning in _delayedCompatibilityWarnings)
+                _loadedIntoWorld = true;
+                if (ClientsideLagPrevention.DoCompatibilityWarnings && _delayedCompatibilityWarnings.Count > 0)
                 {
-                    Main.NewText(Language.GetText(warning));
-                    _ = _delayedCompatibilityWarnings.Remove(warning);
+                    foreach (string warning in _delayedCompatibilityWarnings)
+                    {
+                        Main.NewText(Language.GetTextValue(warning), 255, 0, 0);
+                    }
+                    _delayedCompatibilityWarnings.Clear();
+                    if (!_sentPostWarning)
+                    {
+                        Main.NewText(Language.GetTextValue("Mods.ClientsideLagPrevention.Common.CompatibilityIssueWarning"), 255, 0, 0);
+                        _sentPostWarning = true;
+                    }
                 }
-                if (!_sentPostWarning)
-                {
-                    Main.NewText(Language.GetText("Mods.ClientsideLagPrevention.Common.CompatibilityIssueWarning"));
-                    _sentPostWarning = true;
-                }
+                _fireOnce = false;
             }
         }
-
     }
 }

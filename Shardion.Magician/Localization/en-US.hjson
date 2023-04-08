@@ -8,38 +8,79 @@ Mods: {
                 Never: Never
             }
 
+            # Headers
+            InfoHeader: Info
+
             # Config options
             FullbrightWhenBossAlive: {
                 Label: Fullbright if a boss is alive
-                Tooltip: Disable the lighting engine when a boss is alive, replacing it with an extremely simple\nlighting engine that disaplys everything at maximum brightness.\nMajor FPS improvement.
+                Tooltip: '''
+                         Disable the lighting engine when a boss is alive, replacing it with an extremely simple
+                         lighting engine that disaplys everything at maximum brightness.
+                         Major FPS improvement.
+                         '''
             }
             ItemCulling: {
                 Label: Do not draw offscreen dropped items
-                Tooltip: Only draw dropped items if they are on-screen.\nMinor FPS improvement at no visual cost if there are many dropped items.
+                Tooltip: '''
+                         Only draw dropped items if they are on-screen.
+                         Minor FPS improvement at no visual cost if there are many dropped items.
+                         '''
             }
             HideItems: {
                 Label: Hide dropped items
-                Tooltip: Disable drawing of dropped items.\Minor FPS improvement if there are many dropped items.
+                Tooltip: '''
+                         Disable drawing of dropped items.
+                         Minor FPS improvement if there are many dropped items.
+                         '''
             }
             DoNotCreateDust: {
                 Label: Disable dust
-                Tooltip: Disables creation of dust.\nMedium FPS improvement.
+                Tooltip: '''
+                         Disables creation of dust.
+                         Medium FPS improvement.
+                         '''
             }
             DoNotCreateCombatText: {
                 Label: Disable combat text
-                Tooltip: Disables creation of combat text.\nMinor FPS improvement.
+                Tooltip: '''
+                         Disables creation of combat text.
+                         Minor FPS improvement.
+                         '''
             }
             DoNotCreateGore: {
                 Label: Disable gore
-                Tooltip: Disables creation of gore.\nMinor FPS improvement.
+                Tooltip: '''
+                         Disables creation of gore.
+                         Minor FPS improvement.
+                         '''
             }
             DoNotCreateRain: {
                 Label: Disable rain
-                Tooltip: Disables creation of rain.\nMedium FPS improvement if it is raining.
+                Tooltip: '''
+                         Disables creation of rain.
+                         Medium FPS improvement if it is raining.
+                         '''
             }
             ShowCompatibilityWarnings: {
                 Label: Show compatibility warnings
                 Tooltip: Upon joining a world, if any features are broken by another mod, prints a warning in chat.
+            }
+
+            ViewLicense: {
+                Label: "View license"
+                Tooltip: '''
+                         View the mod's license, which dictates how you can use it.
+                         You will only ever have to worry about this if you want to copy source code from the mod.
+                         '''
+            }
+            ViewSource: {
+                Label: "View source code"
+                Tooltip: '''
+                         View the mod's source code, from which the mod is compiled.
+                         The source code of the version you have can be obtained with tModReader.
+                         Click the "Extract" button under the mod's description, which can be viewed from the mod list.
+                         '''
             }
         }
         Common: {

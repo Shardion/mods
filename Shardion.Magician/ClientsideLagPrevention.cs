@@ -1,14 +1,19 @@
+using Newtonsoft.Json;
 using System.ComponentModel;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
+using Shardion.Identic;
 
 namespace Shardion.Magician
 {
     public enum BossConfigurable
     {
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Always")]
         Always,
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.IfBossAlive")]
         IfBossAlive,
+        [Label("$Mods.ClientsideLagPrevention.Config.BossConfigurable.Never")]
         Never,
     }
 
@@ -84,6 +89,22 @@ namespace Shardion.Magician
         [Label("$Mods.ClientsideLagPrevention.Config.ShowCompatibilityWarnings.Label")]
         [Tooltip("$Mods.ClientsideLagPrevention.Config.ShowCompatibilityWarnings.Tooltip")]
         public bool ShowCompatibilityWarnings { get; set; }
+
+        [Header("$Mods.ClientsideLagPrevention.Config.InfoHeader")]
+
+        [JsonIgnore]
+        [Label("$Mods.ClientsideLagPrevention.Config.ViewLicense.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.ViewLicense.Tooltip")]
+        [CustomModConfigItem(typeof(ViewLicenseElement))]
+        // Contents are generated from the provided mod's LICENSE file
+        public string ViewLicense => "ClientsideLagPrevention";
+
+        [JsonIgnore]
+        [Label("$Mods.ClientsideLagPrevention.Config.ViewSource.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.ViewSource.Tooltip")]
+        [CustomModConfigItem(typeof(ViewSourceElement))]
+        // Opens the provided URI
+        public string ViewSource => "https://github.com/shardion/mods/tree/1.4.4/Shardion.Magician/";
 
         public override void OnChanged()
         {
