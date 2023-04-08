@@ -76,15 +76,17 @@ namespace Shardion.Identic
             _text.Width = StyleDimension.Fill;
             _text.Height.Set(400f, 0);
             _text.Top.Set(Height.Pixels, 0f);
+            _text.HAlign = 0.0f;
 
             _textContainerScrollbar = new();
             _textContainerScrollbar.WithView(100f, 1000f);
             _textContainerScrollbar.HAlign = 1.0f;
             _textContainerScrollbar.Height = StyleDimension.Fill;
+            _textContainerScrollbar.Left.Set(_text.MaxWidth.Pixels + 10f, 0f);
 
             _text.SetScrollbar(_textContainerScrollbar);
-            _text.Append(_textContainerScrollbar);
             Append(_text);
+            _text.Append(_textContainerScrollbar);
 
             MaxHeight.Set(Height.Pixels + 430f, 0f);
             _justChangedState = true;
