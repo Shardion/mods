@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +21,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity
 
         private Texture2D? _oddityRingTexture = null;
         private float _oddityRingRotation;
-        private static readonly Color _oddityRingColor = new(1f, 1f, 1f, 0.7f);
+        private static readonly Color _oddityRingColor = new(255, 255, 255);
 
         public override void SetStaticDefaults()
         {
@@ -44,10 +45,12 @@ namespace Shardion.Ether.Content.NPCs.Oddity
             NPC.lifeMax = 1000000;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
+            NPC.knockBackResist = 0;
             NPC.boss = true;
             if (!Main.dedServ)
             {
-                Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/WorldFragments");
+                // TODO: should be MMM but I wanted funny testing music
+                Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/SuperGhostbustersDeluxeFullAlbum");
             }
         }
 
@@ -63,12 +66,10 @@ namespace Shardion.Ether.Content.NPCs.Oddity
         {
             if (_oddityRingTexture == null)
             {
-                _oddityRingTexture = (Texture2D)ModContent.Request<Texture2D>("ShardionsOddEncounter/", AssetRequestMode.ImmediateLoad); // scary cast
+                _oddityRingTexture = ModContent.Request<Texture2D>("ShardionsOddEncounter/Assets/NPCs/Oddity/Ring", AssetRequestMode.ImmediateLoad).Value;
             }
-            else
-            {
-                Main.EntitySpriteDraw(_oddityRingTexture, NPC.position, null, _oddityRingColor, _oddityRingRotation, _oddityRingTexture.Size() / 2, 1f, SpriteEffects.None, 0);
-            }
+            // Dear reader: You have no clue how much pain and suffering it took to write this line.
+            spriteBatch.Draw(_oddityRingTexture, NPC.Center - drawPosition + new Vector2(0f, NPC.gfxOffY), null, _oddityRingColor, _oddityRingRotation, _oddityRingTexture.Size() / 2, 1f, SpriteEffects.None, 0);
             return true;
         }
 
@@ -102,7 +103,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity
                 _currentPhase = NextPhase();
             }
 
-            _oddityRingRotation++;
+            _oddityRingRotation += 0.05f;
 
             return;
         }

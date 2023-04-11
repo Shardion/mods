@@ -71,8 +71,8 @@ namespace Shardion.Magician
         public BossConfigurable DoNotCreateDust { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]
-        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Label")]
-        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateDust.Tooltip")]
+        [Label("$Mods.ClientsideLagPrevention.Config.DoNotCreateCombatText.Label")]
+        [Tooltip("$Mods.ClientsideLagPrevention.Config.DoNotCreateCombatText.Tooltip")]
         public BossConfigurable DoNotCreateCombatText { get; set; }
 
         [DefaultValue(BossConfigurable.IfBossAlive)]

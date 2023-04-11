@@ -13,6 +13,7 @@ Changelog:
 v1.4.0 (for 1.4.4)
 - Added warnings if any features are broken by another mod.
 - Added localization support.
+- Added buttons in the config to view the mod's licensing info and source code.
 - Fixed mod source code not being included with the mod.
 
 v1.3.0

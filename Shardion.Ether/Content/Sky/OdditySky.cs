@@ -30,10 +30,11 @@ namespace Shardion.Ether.Content.Sky
         {
             if (maxDepth >= 0 && minDepth < 0 && Ether.Instance != null)
             {
+                Color odditySkyColor = new Color(0, 0, 0, Convert.ToInt32(intensity * 255));
                 spriteBatch.Draw(
                     Ether.Instance.Assets.Request<Texture2D>("Assets/Sky/OdditySky", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
                     new Rectangle(0, 0, Main.screenWidth, Main.screenHeight),
-                    Color.Black
+                    odditySkyColor
                 );
                 foreach (OdditySkyParticle particle in particles)
                 {
