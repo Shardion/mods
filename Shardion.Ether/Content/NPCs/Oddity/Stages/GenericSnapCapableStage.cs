@@ -9,7 +9,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity
         OneOne = 1,
     }
 
-    public class GenericSnapCapableStage
+    public class GenericSnapCapableStage : OddityStage
     {
         public SongMetadata Song { get; set; }
 

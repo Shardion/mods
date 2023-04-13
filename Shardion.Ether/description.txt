@@ -1,0 +1,17 @@
+Adds a single post-Moonlord boss.
+
+- Themed around weaponry, light and justice.
+- Primarily, a fun dodging challenge.
+- Includes some nice visual effects.
+- A face from a land long forgotten.
+
+There is no reward for defeating the boss, outside of potions and coins.
+
+This boss is designed around vanilla Terraria gear, and you will not have the intended
+experience if you use anything that modifies vanilla Terraria balancing, including:
+
+- Gear from content mods that balance around themselves
+- Extra accessory slots
+- New potions
+
+Shoutouts to Tomat and everyone else who works on Rejuvena.Collate for making this possible.

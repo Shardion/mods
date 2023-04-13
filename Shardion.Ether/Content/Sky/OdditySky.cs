@@ -17,20 +17,18 @@ namespace Shardion.Ether.Content.Sky
         private readonly OddityTimer particleTimer = new();
         private readonly Random particleRandom = new();
 
-        private float intensity;
-        private const float increment = 0.01f;
+        private static readonly float PARTICLE_MAX_SECONDS_PER_SCREEN = 2.5f;
+        private static readonly float PARTICLE_MAX_SCALE = 4f;
+        private static readonly float FADE_INTENSITY_STEP = 0.01f;
 
-        // Minimum for these is always 1.0f
-        private static readonly float particleMaxSecondsPerScreen = 2.5f;
-        private static readonly float particleMaxScale = 4f;
-
-        private bool isActive;
+        private bool _isActive;
+        private float _fadeIntensity;
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
             if (maxDepth >= 0 && minDepth < 0 && Ether.Instance != null)
             {
-                Color odditySkyColor = new Color(0, 0, 0, Convert.ToInt32(intensity * 255));
+                Color odditySkyColor = new Color(255, 255, 255, Convert.ToInt32(_fadeIntensity * 255));
                 spriteBatch.Draw(
                     Ether.Instance.Assets.Request<Texture2D>("Assets/Sky/OdditySky", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
                     new Rectangle(0, 0, Main.screenWidth, Main.screenHeight),
@@ -38,11 +36,16 @@ namespace Shardion.Ether.Content.Sky
                 );
                 foreach (OdditySkyParticle particle in particles)
                 {
-                    // TODO: use the full overload so scale does something
                     spriteBatch.Draw(
                         Ether.Instance.Assets.Request<Texture2D>("Assets/Sky/OdditySkyParticle", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value,
                         particle.Position,
-                        Color.White
+                        null,
+                        Color.White,
+                        0f,
+                        Vector2.Zero,
+                        particle.Scale,
+                        SpriteEffects.None,
+                        0
                     );
                 }
             }
@@ -54,25 +57,24 @@ namespace Shardion.Ether.Content.Sky
 
             if (EtherGlobalNPC.IsOddityAlive())
             {
-                intensity += increment;
-                if (intensity > 1f)
+                _fadeIntensity += FADE_INTENSITY_STEP;
+                if (_fadeIntensity > 1f)
                 {
-                    intensity = 1f;
+                    _fadeIntensity = 1f;
                 }
             }
             else
             {
-                intensity -= increment;
-                if (intensity < 0f)
+                _fadeIntensity -= FADE_INTENSITY_STEP;
+                if (_fadeIntensity < 0f)
                 {
-                    intensity = 0f;
+                    _fadeIntensity = 0f;
                     Deactivate();
                 }
             }
 
             for (int index = 0; index < particles.Count; index++)
             {
-                // TODO: Ughhhh. Multiple allocations every tick. See if there's a better way.
                 OdditySkyParticle updatedParticle = new(
                     particles[index].Position + new Vector2(Main.screenWidth / particles[index].Speed / 60, 0),
                     particles[index].Speed,
@@ -90,8 +92,8 @@ namespace Shardion.Ether.Content.Sky
             if (particleTimer.Ticks % 20 == 0)
             {
                 int particleY = particleRandom.Next() % Main.screenHeight;
-                float particleSpeed = particleRandom.NextSingle() * particleMaxSecondsPerScreen;
-                float particleScale = particleRandom.NextSingle() * particleMaxScale;
+                float particleSpeed = particleRandom.NextSingle() * PARTICLE_MAX_SECONDS_PER_SCREEN;
+                float particleScale = particleRandom.NextSingle() * PARTICLE_MAX_SCALE;
 
                 OdditySkyParticle newParticle = new(new Vector2(0, particleY), particleSpeed, particleScale);
                 particles.Add(newParticle);
@@ -100,32 +102,32 @@ namespace Shardion.Ether.Content.Sky
 
         public override float GetCloudAlpha()
         {
-            return 1f - intensity;
+            return 1f - _fadeIntensity;
         }
 
         public override void Activate(Vector2 position, params object[] args)
         {
-            isActive = true;
+            _isActive = true;
         }
 
         public override void Deactivate(params object[] args)
         {
-            isActive = false;
+            _isActive = false;
         }
 
         public override void Reset()
         {
-            isActive = false;
+            _isActive = false;
         }
 
         public override bool IsActive()
         {
-            return isActive;
+            return _isActive;
         }
 
         public override Color OnTileColor(Color inColor)
         {
-            return new Color(Vector4.Lerp(new Vector4(1f, 1f, 0f, 1f), inColor.ToVector4(), 1f - intensity));
+            return new Color(Vector4.Lerp(new Vector4(1f, 1f, 0f, 1f), inColor.ToVector4(), 1f - _fadeIntensity));
         }
     }
 }

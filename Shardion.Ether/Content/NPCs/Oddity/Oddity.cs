@@ -38,8 +38,8 @@ namespace Shardion.Ether.Content.NPCs.Oddity
 
         public override void SetDefaults()
         {
-            NPC.width = 100;
-            NPC.height = 100;
+            NPC.width = 256;
+            NPC.height = 256;
             NPC.damage = 222222;
             NPC.defense = 222222;
             NPC.lifeMax = 1000000;
@@ -69,7 +69,7 @@ namespace Shardion.Ether.Content.NPCs.Oddity
                 _oddityRingTexture = ModContent.Request<Texture2D>("ShardionsOddEncounter/Assets/NPCs/Oddity/Ring", AssetRequestMode.ImmediateLoad).Value;
             }
             // Dear reader: You have no clue how much pain and suffering it took to write this line.
-            spriteBatch.Draw(_oddityRingTexture, NPC.Center - drawPosition + new Vector2(0f, NPC.gfxOffY), null, _oddityRingColor, _oddityRingRotation, _oddityRingTexture.Size() / 2, 1f, SpriteEffects.None, 0);
+            spriteBatch.Draw(_oddityRingTexture, NPC.Center - drawPosition + new Vector2(0f, NPC.gfxOffY), _oddityRingTexture.Bounds, _oddityRingColor, _oddityRingRotation, _oddityRingTexture.Size() / 2, 1f, SpriteEffects.None, 0);
             return true;
         }
 
