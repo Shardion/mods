@@ -13,7 +13,7 @@ Changelog:
 
 v2.0.0
 - The mod works again.
-- Disabling the lighting engine removes the [code]RenderBlack[/code] method and its
+- Disabling the lighting engine removes the RenderBlack method and its
   tile resolution logic, finally giving an actual FPS improvement!
 - Rain, combat text, dust and gore prevention now removes all of the
   drawing and updating logic, improving performance in these areas.
