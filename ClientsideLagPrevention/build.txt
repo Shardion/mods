@@ -2,3 +2,6 @@ displayName = Clientside Lag Prevention
 author = shardion
 version = 2.0.0
 modSide = Client
+hideCode = false
+hideResources = false
+includeSource = true
