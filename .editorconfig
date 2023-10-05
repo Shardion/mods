@@ -8,7 +8,6 @@ indent_size = 4
 end_of_line = lf
 
 # Enforce code style by making all stylistical choices and incorrect formatting an error
-# Only recommended for small projects where a handful of developers agree on code style
 dotnet_analyzer_diagnostic.category-Style.severity = error
 
 # Always use more readable switch statements
