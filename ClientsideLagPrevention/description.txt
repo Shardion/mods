@@ -1,0 +1,24 @@
+A mod which introduces methods of reducing client-side lag.
+All of the mod's changes can be disabled, constantly enabled, or enabled only if a boss is alive.
+Because it's client-side, you can use this mod on servers which don't have it.
+
+All lag-reduction measures included as are follows:
+
+- Skip resolving and drawing black areas of the screen
+- Disable processing of rain, combat text, dust, and gore
+
+Changelog:
+
+v2.0.0
+- The mod works again.
+- Disabling the lighting engine removes the RenderBlack method and its
+  tile resolution logic, finally giving an actual FPS improvement!
+- Rain, combat text, dust and gore prevention now removes all of the
+  drawing and updating logic, improving performance in these areas.
+- Fixed translation keys in the menus. Sorry about that.
+- Removed item culling since it didn't help and was too much work.
+- Removed the license and source code buttons in the config.
+  Don't worry, the mod is still open source, under the same license, at
+  [c/0000FF:https://github.com/shardion/mods].
+- Moved away from Rejuvena.Collate, since it constantly broke, isn't
+  supported, and doesn't help much.

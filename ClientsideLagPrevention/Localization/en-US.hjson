@@ -1,0 +1,57 @@
+Mods: {
+    ClientsideLagPrevention: {
+        Configs: {
+            BossConfigurable: {
+                Tooltip: ""
+                Always.Label: Always
+                IfBossAlive.Label: If a boss is alive
+                Never.Label: Never
+            }
+
+            ClientsideLagPreventionConfig: {
+                DisplayName: Clientside Lag Prevention configuration
+
+                SkipBlack: {
+                    Label: Skip drawing black tiles
+                    Tooltip: Skips resolving completely dark tiles and drawing the black texture over them.
+                }
+                IgnoreDust: {
+                    Label: Disable dust
+                    Tooltip: Disables creation of dust.
+
+                }
+                IgnoreCombatText: {
+                    Label: Disable combat text
+                    Tooltip: Disables creation of combat text.
+
+                }
+                IgnoreGore: {
+                    Label: Disable gore
+                    Tooltip: Disables creation of gore.
+                }
+                IgnoreRain: {
+                    Label: Disable rain
+                    Tooltip: Disables creation of rain.
+                }
+                ShowCompatibilityWarnings: {
+                    Label: Show compatibility warnings
+                    Tooltip: Upon joining a world, if any features are broken by another mod, prints a warning in chat.
+                }
+            }
+            Common: {
+                # IL edit failiures
+                ILEditUpdateGoreFail: IL editing Gore.Update() failed. Gores cannot be disabled.
+                ILEditUpdateRainFail: IL editing Rain.Update() failed. Rain cannot be disabled.
+                ILEditUpdateDustFail: IL editing Dust.UpdateDust() failed. Dust cannot be disabled.
+                ILEditUpdateTextFail: IL editing CombatText.Update() failed. Combat text cannot be disabled.
+                ILEditDrawBlackFail: IL editing Main.DrawBlack() failed. Completely dark tiles cannot be skipped.
+
+                ILEditGenericFail: An IL edit failed. Some features are likely broken.
+                DisabledDueToILEditFail: This feature does not function due to a related IL edit failing.\nPlease make sure none of the loaded mods are conflicting.
+
+                # Generic compatibility issue warning
+                CompatibilityIssueWarning: Please make sure none of the loaded mods are conflicting with Clientside Lag Prevention.
+            }
+        }
+    }
+}
