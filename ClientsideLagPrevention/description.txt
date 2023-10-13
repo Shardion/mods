@@ -9,6 +9,10 @@ All lag-reduction measures included as are follows:
 
 Changelog:
 
+v2.0.1
+- The mod is now properly client-side again. It previously was not due to a
+  build.txt misconfiguration.
+
 v2.0.0
 - The mod works again.
 - Disabling the lighting engine removes the RenderBlack method and its
